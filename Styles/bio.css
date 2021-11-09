@@ -1,0 +1,13 @@
+@font-face {
+  font-family: "Avenir";
+  src: url("../../Assets/Font/AvenirNextLTPro-Regular.otf") format("otf"), url("../../Assets/Font/AvenirNextLTPro-Demi.otf") format("otf"), url("../../Assets/Font/AvenirNextLTPro-Bold.otf") format("otf");
+}
+.body {
+  margin: 0;
+}
+
+.header__title {
+  text-transform: uppercase;
+  background-color: #afafaf;
+  font-family: "Avenir";
+}/*# sourceMappingURL=bio.css.map */

@@ -1,0 +1,13 @@
+@use "./Partials/variables" as *;
+
+.body {
+  margin: 0;
+}
+
+.header {
+  &__title {
+    text-transform: uppercase;
+    background-color: $primary-silver;
+    font-family: "Avenir";
+  }
+}
