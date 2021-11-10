@@ -53,9 +53,24 @@ body {
   margin-left: 3%;
 }
 
-.article__container {
-  margin: 30px;
+.about__container, .gallery__container {
+  margin: 5vh 5%;
 }
-.article__title {
-  padding-left: 30px;
+.about__title {
+  padding-bottom: 1%;
+}
+.about__image {
+  width: 100%;
+}
+
+.gallery__image {
+  width: 100%;
+  margin-bottom: 1%;
+}
+
+.footer__container {
+  background-color: #323232;
+}
+.footer__title {
+  color: #ffffff;
 }/*# sourceMappingURL=bio.css.map */

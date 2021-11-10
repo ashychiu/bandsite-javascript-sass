@@ -56,12 +56,35 @@ body {
   }
 }
 
-.article {
+.about {
   &__container {
-    margin: 30px;
+    margin: 5vh 5%;
   }
 
   &__title {
-    padding-left: 30px;
+    padding-bottom: 1%;
+  }
+
+  &__image {
+    width: 100%;
+  }
+}
+
+.gallery {
+  &__container {
+    @extend .about__container;
+  }
+  &__image {
+    width: 100%;
+    margin-bottom: 1%;
+  }
+}
+
+.footer {
+  &__container {
+    background-color: $primary-black;
+  }
+  &__title {
+    color: $primary-white;
   }
 }
