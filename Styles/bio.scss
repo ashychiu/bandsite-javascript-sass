@@ -1,13 +1,67 @@
 @use "./Partials/variables" as *;
 
-.body {
+html,
+body {
   margin: 0;
+  padding: 0;
+  font-family: "avenir";
 }
 
 .header {
+  &__container {
+    background-color: $secondary-black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  &__logo {
+    padding: 20px;
+    margin: auto;
+  }
+  &__nav-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  &__nav-link {
+    text-decoration: none;
+    color: $primary-white;
+    font-family: "avenir";
+    width: 100%;
+    margin: auto;
+    text-align: center;
+
+    &--active {
+      border-bottom: 5px solid $primary-white;
+    }
+  }
+}
+
+.hero {
+  &__container {
+    background-image: url(../Assets/Images/hero-bio.jpg);
+    height: 40vh;
+    width: 100%;
+    background-size: cover;
+    overflow: hidden;
+    background-position: center;
+  }
   &__title {
-    text-transform: uppercase;
-    background-color: $primary-silver;
-    font-family: "Avenir";
+    color: $primary-white;
+    margin-top: 15vh;
+    margin-left: 3%;
+  }
+}
+
+.article {
+  &__container {
+    margin: 30px;
+  }
+
+  &__title {
+    padding-left: 30px;
   }
 }
