@@ -1,12 +1,11 @@
+// Responsive design - media query breakpoints
+$desktop-breakpoint: 1024px;
+$tablet-breakpoint: 768px;
+
+// Site colours
 $primary-black: #323232;
 $primary-silver: #afafaf;
 $primary-white: #ffffff;
 $secondary-black: #000000;
 $secondary-silver: #e1e1e1;
 $secondary-white: #fafafa;
-@font-face {
-  font-family: "Avenir";
-  src: url("../../Assets/Font/AvenirNextLTPro-Regular.otf") format("otf"),
-    url("../../Assets/Font/AvenirNextLTPro-Demi.otf") format("otf"),
-    url("../../Assets/Font/AvenirNextLTPro-Bold.otf") format("otf");
-}

@@ -1,0 +1,14 @@
+@use "./variables" as *;
+@use "./typography" as *;
+@use "./mixins" as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Avenir";
+}
