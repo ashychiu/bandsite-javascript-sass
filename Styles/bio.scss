@@ -13,14 +13,18 @@ body {
 .header {
   &__container {
     background-color: $secondary-black;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
     width: 100%;
+    @include flex(center, center, column);
+    @include tablet {
+      @include flex(flex-start, center);
+    }
   }
   &__logo {
-    padding: 20px;
+    padding: 1.25rem;
     margin: auto;
   }
   &__nav-container {
@@ -38,7 +42,14 @@ body {
     text-align: center;
 
     &--active {
-      border-bottom: 5px solid $primary-white;
+      border-bottom: 0.3125rem solid $primary-white;
+      font-weight: 700;
+      @include tablet {
+        border-bottom: 2px solid $primary-white;
+      }
+    }
+    &:hover {
+      font-weight: 600;
     }
   }
 }
@@ -54,18 +65,18 @@ body {
   }
   &__title {
     color: $primary-white;
-    margin-top: 15vh;
-    margin-left: 3%;
+    margin-top: 10vh;
+    padding: $padding;
   }
 }
 
 .about {
   &__container {
-    margin: 5vh 5%;
+    margin: $padding;
   }
 
   &__title {
-    padding-bottom: 1%;
+    // padding: $padding;
   }
 
   &__image {
@@ -79,26 +90,39 @@ body {
   }
   &__image {
     width: 100%;
-    margin-bottom: 1%;
+    padding-bottom: 1rem;
   }
 }
 
 .footer {
   &__container {
     background-color: $primary-black;
-    padding-left: 3%;
+    padding: 0 16px;
     color: $primary-white;
+    font-size: 12px;
   }
   &__title {
     color: $primary-white;
+    padding: 24px 0 16px 0;
   }
   &__social-icon {
-    width: 50px;
-    height: 50px;
+    width: 20px;
+    height: 20px;
     object-fit: contain;
-    margin-right: 20px;
+    margin-right: 1.25rem;
+    margin-bottom: 24px;
   }
-  &__contact-info {
-    @extend .footer__title;
+  &__logo {
+    padding: 50px 0 16px 0;
+  }
+  &__copyright {
+    font-size: 0.95em;
+    padding-bottom: 24px;
+  }
+}
+
+.contact {
+  &__container {
+    @include flex(_, _, column);
   }
 }
