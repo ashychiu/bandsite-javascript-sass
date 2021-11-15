@@ -12,11 +12,15 @@ body {
 
 .header {
   &__container {
-    background-color: $secondary-black;
+    background-color: $primary-black;
     width: 100%;
     @include flex(center, center, column);
     @include tablet {
       @include flex;
+      padding-left: 36px;
+    }
+    @include desktop {
+      padding: $desktop-padding;
     }
   }
   &__logo {
@@ -31,6 +35,9 @@ body {
       align-content: center;
       margin-right: auto;
     }
+    @include desktop {
+      width: 10%;
+    }
   }
   &__nav-link {
     text-decoration: none;
@@ -39,6 +46,9 @@ body {
     width: 100%;
     margin: auto;
     text-align: center;
+    @include desktop {
+      margin: 0 20px;
+    }
 
     &--active {
       border-bottom: 3px solid $primary-white;
@@ -52,9 +62,6 @@ body {
     &:hover {
       font-weight: 600;
     }
-  }
-  &__nav-item--active {
-    border-bottom: 5px solid red;
   }
 }
 
@@ -71,7 +78,10 @@ body {
     background-position: center;
     @include tablet {
       height: 100vh;
-      padding-left: 36px;
+      padding: $tablet-padding;
+    }
+    @include desktop {
+      padding: $desktop-padding;
     }
   }
   &__title {
@@ -83,6 +93,12 @@ body {
       margin-top: 40vh;
       @include tablet-page-header;
     }
+    &:hover {
+      //hover transition for hero title
+      transform: skew(-20deg);
+      transition-duration: 3s;
+      transition-delay: 0.5s;
+    }
   }
 }
 
@@ -92,13 +108,20 @@ body {
     @include tablet {
       padding: 0 48px;
     }
+    @include desktop {
+      padding: 0 180px;
+    }
   }
   &__title {
     @include section-header;
     padding: $padding;
     @include tablet {
       @include tablet-section-header;
-      padding: $tab-desk-padding;
+      padding-left: 48px;
+    }
+    @include desktop {
+      padding-left: 120px;
+      margin-bottom: 0;
     }
   }
   &__image {
@@ -109,10 +132,17 @@ body {
     @include tablet {
       @include tablet-subheader;
     }
+    @include desktop {
+      width: 85%;
+      line-height: 1.5;
+    }
     &-author {
       @include tablet {
         font-size: 0.8em;
         font-weight: 600;
+      }
+      @include desktop {
+        line-height: 3;
       }
     }
   }
@@ -138,18 +168,28 @@ body {
 }
 
 .gallery {
+  background-color: $secondary-white;
+  padding: $padding;
+  @include tablet {
+    padding: 0 36px;
+  }
+  @include desktop {
+    padding: 0 63px;
+  }
+
   &__title {
     @include section-header;
-    padding: $padding;
+    // padding: $padding;
     @include tablet {
       @include tablet-section-header;
-      padding-left: 36px;
+    }
+    @include desktop {
+      padding: $tablet-padding;
     }
   }
   &__container {
-    @extend .about__container;
     @include tablet {
-      padding: 0%;
+      padding-bottom: 20px;
       @include flex(space-evenly, center, row);
       flex-wrap: wrap;
     }
@@ -168,10 +208,6 @@ body {
 }
 
 .footer {
-  a:hover {
-    // hover effect on social & email links
-    opacity: 0.75;
-  }
   &__container {
     background-color: $primary-black;
     padding: 0 16px;
@@ -182,6 +218,10 @@ body {
       flex-wrap: wrap;
       padding: 0 36px;
       @include tablet-footer-copy;
+    }
+    @include desktop {
+      flex-wrap: wrap;
+      padding: 0 100px;
     }
   }
   &__title {
@@ -197,6 +237,9 @@ body {
       margin-top: 24px;
       width: 33%;
       @include flex(space-evenly, center, row);
+    }
+    @include desktop {
+      width: 20%;
     }
   }
   &__social-icon {
@@ -214,13 +257,22 @@ body {
     @include tablet {
       order: 1;
       margin-left: auto;
+      margin-bottom: 15px;
+    }
+    @include desktop {
+      margin-left: auto;
     }
   }
   &__copyright {
     font-size: 0.95em;
     padding-bottom: 24px;
+    margin-bottom: 0;
     @include tablet {
       order: 5;
+    }
+    @include desktop {
+      order: 5;
+      align-self: flex-end;
     }
   }
 }
@@ -233,6 +285,9 @@ body {
       order: 2;
       width: 100%;
       margin-bottom: 24px;
+    }
+    @include desktop {
+      width: 75%;
     }
   }
 }

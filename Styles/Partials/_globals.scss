@@ -16,8 +16,8 @@ body {
 a {
   text-decoration: none;
   color: $primary-white;
-}
-
-address {
-  font-style: normal;
+  &:hover {
+    // hover effect on social & email links
+    opacity: 0.75;
+  }
 }
