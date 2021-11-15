@@ -104,7 +104,11 @@ a:hover {
   }
 }
 .header__nav-link:hover {
+  color: #ffffff;
   font-weight: 600;
+}
+.header__nav-link--inactive {
+  color: #e1e1e1;
 }
 
 .hero__container {
@@ -268,10 +272,11 @@ a:hover {
   font-size: 1.5rem;
   line-height: 2rem;
   font-weight: 700;
-  padding: 1.5rem 1rem 1rem 1rem;
 }
 @media screen and (min-width: 768px) {
   .gallery__title {
+    padding-left: 1.5rem;
+    padding-bottom: 0;
     font-size: 2.25rem;
     line-height: 2.75rem;
     font-weight: 700;
@@ -302,6 +307,12 @@ a:hover {
 @media screen and (min-width: 768px) {
   .gallery__image {
     width: 30%;
+    padding-bottom: 1.25rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .gallery__image {
+    padding-bottom: 1.5rem;
   }
 }
 
@@ -348,6 +359,7 @@ a:hover {
 }
 @media screen and (min-width: 768px) {
   .footer__social-container {
+    margin-left: 1.25rem;
     margin-top: 1.5rem;
     width: 33%;
     display: flex;
@@ -358,12 +370,13 @@ a:hover {
 }
 @media screen and (min-width: 1024px) {
   .footer__social-container {
+    margin-left: 5%;
     width: 20%;
   }
 }
 .footer__social-icon {
-  width: 20px;
-  height: 20px;
+  width: 1.25rem;
+  height: 1.25rem;
   -o-object-fit: contain;
      object-fit: contain;
   margin-right: 1.25rem;
@@ -371,7 +384,9 @@ a:hover {
 }
 @media screen and (min-width: 768px) {
   .footer__social-icon {
-    margin: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-bottom: 0.625rem;
   }
 }
 .footer__logo {
@@ -409,8 +424,8 @@ a:hover {
 
 .contact__container {
   display: flex;
-  justify-content: _;
-  align-items: _;
+  justify-content: space-between;
+  align-items: center;
   flex-direction: column;
 }
 @media screen and (min-width: 768px) {

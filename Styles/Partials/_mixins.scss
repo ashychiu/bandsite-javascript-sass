@@ -1,17 +1,20 @@
 @use "./variables" as *;
 
+// responsive for tablet
 @mixin tablet {
   @media screen and (min-width: $tablet-breakpoint) {
     @content;
   }
 }
 
+// responsive for desktop
 @mixin desktop {
   @media screen and (min-width: $desktop-breakpoint) {
     @content;
   }
 }
 
+// flex box
 @mixin flex(
   $justify-content: space-between,
   $align-items: center,
@@ -23,6 +26,7 @@
   flex-direction: $flex-direction;
 }
 
+// Mobile - Font size, line height & font weight
 @mixin page-header {
   font-size: 1.5rem;
   line-height: 2rem;
@@ -54,6 +58,7 @@
   font-weight: 700;
 }
 
+// Tablet/Desktop - Font size, line height & font weight
 @mixin tablet-page-header {
   font-size: 3.75rem;
   line-height: 4.25rem;

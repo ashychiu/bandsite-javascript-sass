@@ -50,7 +50,11 @@
       }
     }
     &:hover {
+      color: $primary-white;
       font-weight: 600;
+    }
+    &--inactive {
+      color: $secondary-mercury;
     }
   }
 }
@@ -159,7 +163,7 @@
 }
 
 .gallery {
-  background-color: $secondary-white;
+  background-color: $secondary-alabaster;
   padding: $padding;
   @include tablet {
     padding: 0 1rem;
@@ -170,8 +174,9 @@
 
   &__title {
     @include section-header;
-    padding: $padding;
     @include tablet {
+      padding-left: 1.5rem;
+      padding-bottom: 0;
       @include tablet-section-header;
     }
     @include desktop {
@@ -194,6 +199,10 @@
     padding-bottom: 1rem;
     @include tablet {
       width: 30%;
+      padding-bottom: 1.25rem;
+    }
+    @include desktop {
+      padding-bottom: 1.5rem;
     }
   }
 }
@@ -225,22 +234,26 @@
   }
   &__social-container {
     @include tablet {
+      margin-left: 1.25rem;
       margin-top: 1.5rem;
       width: 33%;
       @include flex(space-evenly, center, row);
     }
     @include desktop {
+      margin-left: 5%;
       width: 20%;
     }
   }
   &__social-icon {
-    width: 20px;
-    height: 20px;
+    width: 1.25rem;
+    height: 1.25rem;
     object-fit: contain;
     margin-right: 1.25rem;
     margin-bottom: 1.5rem;
     @include tablet {
-      margin: 0;
+      width: 1.5rem;
+      height: 1.5rem;
+      margin-bottom: 0.625rem;
     }
   }
   &__logo {
@@ -271,7 +284,7 @@
 
 .contact {
   &__container {
-    @include flex(_, _, column);
+    @include flex(space-between, center, column);
     @include tablet {
       @include flex;
       order: 2;
