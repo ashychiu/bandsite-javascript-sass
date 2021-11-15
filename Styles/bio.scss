@@ -3,13 +3,6 @@
 @use "./partials/typography" as *;
 @use "./partials/variables" as *;
 
-html,
-body {
-  margin: 0;
-  padding: 0;
-  font-family: "avenir";
-}
-
 .header {
   &__container {
     background-color: $primary-black;
@@ -17,7 +10,7 @@ body {
     @include flex(center, center, column);
     @include tablet {
       @include flex;
-      padding-left: 36px;
+      padding-left: 2.25rem;
     }
     @include desktop {
       padding: $desktop-padding;
@@ -40,23 +33,20 @@ body {
     }
   }
   &__nav-link {
-    text-decoration: none;
-    color: $primary-white;
-    font-family: "avenir";
     width: 100%;
     margin: auto;
     text-align: center;
     @include desktop {
-      margin: 0 20px;
+      margin: 0 1.25rem;
     }
 
     &--active {
       border-bottom: 3px solid $primary-white;
-      padding: 5px 0;
+      padding: 0.3125rem 0;
       font-weight: 700;
       @include tablet {
         border-bottom: 2px solid $primary-white;
-        padding: 20px 0;
+        padding: 1.25rem 0;
       }
     }
     &:hover {
@@ -65,17 +55,18 @@ body {
   }
 }
 
-// Tinted image ref: https://stackoverflow.com/questions/12112746/how-can-i-tint-a-background-image-with-css/35177384
+// Tinted image
+// Ref link: https://stackoverflow.com/questions/12112746/how-can-i-tint-a-background-image-with-css/35177384
 .hero {
   &__container {
-    background-image: url(../Assets/Images/hero-bio.jpg);
+    background-image: url(../assets/images/hero-bio.jpg);
     background-color: rgb(50, 50, 50, 0.5); //tint color
-    background-blend-mode: multiply; //tinted image
+    background-blend-mode: multiply; //tinted image overlay
     height: 40vh;
     width: 100%;
     background-size: cover;
-    overflow: hidden;
     background-position: center;
+    overflow: hidden;
     @include tablet {
       height: 100vh;
       padding: $tablet-padding;
@@ -106,10 +97,10 @@ body {
   &__container {
     margin: $padding;
     @include tablet {
-      padding: 0 48px;
+      padding: 0 3rem;
     }
     @include desktop {
-      padding: 0 180px;
+      padding: 0 11.25rem;
     }
   }
   &__title {
@@ -117,10 +108,10 @@ body {
     padding: $padding;
     @include tablet {
       @include tablet-section-header;
-      padding-left: 48px;
+      padding-left: 3rem;
     }
     @include desktop {
-      padding-left: 120px;
+      padding-left: 7.5rem;
       margin-bottom: 0;
     }
   }
@@ -171,15 +162,15 @@ body {
   background-color: $secondary-white;
   padding: $padding;
   @include tablet {
-    padding: 0 36px;
+    padding: 0 1rem;
   }
   @include desktop {
-    padding: 0 63px;
+    padding: 0 3.9375rem;
   }
 
   &__title {
     @include section-header;
-    // padding: $padding;
+    padding: $padding;
     @include tablet {
       @include tablet-section-header;
     }
@@ -189,7 +180,7 @@ body {
   }
   &__container {
     @include tablet {
-      padding-bottom: 20px;
+      padding-bottom: 1.25rem;
       @include flex(space-evenly, center, row);
       flex-wrap: wrap;
     }
@@ -210,13 +201,13 @@ body {
 .footer {
   &__container {
     background-color: $primary-black;
-    padding: 0 16px;
+    padding: 0 1rem;
     color: $primary-white;
     @include footer-copy;
     @include tablet {
       @include flex;
       flex-wrap: wrap;
-      padding: 0 36px;
+      padding: 0 2.25rem;
       @include tablet-footer-copy;
     }
     @include desktop {
@@ -227,14 +218,14 @@ body {
   &__title {
     color: $primary-white;
     @include section-header;
-    padding: 24px 0 16px 0;
+    padding: 1.5rem 0 1rem 0;
     @include tablet {
       @include tablet-section-header;
     }
   }
   &__social-container {
     @include tablet {
-      margin-top: 24px;
+      margin-top: 1.5rem;
       width: 33%;
       @include flex(space-evenly, center, row);
     }
@@ -247,27 +238,28 @@ body {
     height: 20px;
     object-fit: contain;
     margin-right: 1.25rem;
-    margin-bottom: 24px;
+    margin-bottom: 1.5rem;
     @include tablet {
       margin: 0;
     }
   }
   &__logo {
-    padding: 50px 0 16px 0;
+    padding: 3.125rem 0 1rem 0;
     @include tablet {
       order: 1;
       margin-left: auto;
-      margin-bottom: 15px;
+      margin-bottom: 0.9375rem;
     }
     @include desktop {
       margin-left: auto;
     }
   }
   &__copyright {
-    font-size: 0.95em;
-    padding-bottom: 24px;
+    font-size: 0.8em;
+    padding-bottom: 1.5rem;
     margin-bottom: 0;
     @include tablet {
+      font-size: 0.95em;
       order: 5;
     }
     @include desktop {
@@ -281,10 +273,10 @@ body {
   &__container {
     @include flex(_, _, column);
     @include tablet {
-      @include flex(space-between, center, row);
+      @include flex;
       order: 2;
       width: 100%;
-      margin-bottom: 24px;
+      margin-bottom: 1.5rem;
     }
     @include desktop {
       width: 75%;
