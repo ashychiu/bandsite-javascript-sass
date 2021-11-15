@@ -41,7 +41,8 @@ body {
     text-align: center;
 
     &--active {
-      border-bottom: 0.3125rem solid $primary-white;
+      border-bottom: 3px solid $primary-white;
+      padding: 5px 0;
       font-weight: 700;
       @include tablet {
         border-bottom: 2px solid $primary-white;
@@ -57,19 +58,31 @@ body {
   }
 }
 
+// Tinted image ref: https://stackoverflow.com/questions/12112746/how-can-i-tint-a-background-image-with-css/35177384
 .hero {
   &__container {
     background-image: url(../Assets/Images/hero-bio.jpg);
+    background-color: rgb(50, 50, 50, 0.5); //tint color
+    background-blend-mode: multiply; //tinted image
     height: 40vh;
     width: 100%;
     background-size: cover;
     overflow: hidden;
     background-position: center;
+    @include tablet {
+      height: 100vh;
+      padding-left: 36px;
+    }
   }
   &__title {
+    @include page-header;
     color: $primary-white;
     margin-top: 10vh;
     padding: $padding;
+    @include tablet {
+      margin-top: 40vh;
+      @include tablet-page-header;
+    }
   }
 }
 
@@ -81,39 +94,57 @@ body {
     }
   }
   &__title {
-    // padding: $padding;
+    @include section-header;
+    padding: $padding;
+    @include tablet {
+      @include tablet-section-header;
+      padding: $tab-desk-padding;
+    }
   }
   &__image {
     width: 100%;
   }
   &__quote {
+    @include subheader;
     @include tablet {
-      font-size: 24px;
-      font-weight: 600;
-      line-height: 1.5;
+      @include tablet-subheader;
     }
     &-author {
       @include tablet {
         font-size: 0.8em;
+        font-weight: 600;
       }
     }
   }
   &__heading {
+    @include subheader;
     @include tablet {
-      font-size: 24px;
-      font-weight: 600;
+      @include tablet-subheader;
+    }
+  }
+  &__content {
+    @include body-copy;
+    @include tablet {
+      @include tablet-body-copy;
+      width: 49%;
     }
   }
   &__content-container {
     @include tablet {
       @include flex;
+      width: 100%;
     }
   }
 }
 
 .gallery {
   &__title {
+    @include section-header;
     padding: $padding;
+    @include tablet {
+      @include tablet-section-header;
+      padding-left: 36px;
+    }
   }
   &__container {
     @extend .about__container;
@@ -124,6 +155,10 @@ body {
     }
   }
   &__image {
+    &:hover {
+      //hover effect on gallery images
+      opacity: 0.75;
+    }
     width: 100%;
     padding-bottom: 1rem;
     @include tablet {
@@ -133,26 +168,28 @@ body {
 }
 
 .footer {
-  // @include tablet {
-  //   @include flex(center, center, row);
-  // }
+  a:hover {
+    // hover effect on social & email links
+    opacity: 0.75;
+  }
   &__container {
     background-color: $primary-black;
     padding: 0 16px;
     color: $primary-white;
-    font-size: 12px;
+    @include footer-copy;
     @include tablet {
       @include flex;
       flex-wrap: wrap;
       padding: 0 36px;
+      @include tablet-footer-copy;
     }
   }
   &__title {
     color: $primary-white;
+    @include section-header;
     padding: 24px 0 16px 0;
     @include tablet {
-      font-size: 36px;
-      padding: 0;
+      @include tablet-section-header;
     }
   }
   &__social-container {
