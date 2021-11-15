@@ -13,14 +13,10 @@ body {
 .header {
   &__container {
     background-color: $secondary-black;
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: center;
-    // align-items: center;
     width: 100%;
     @include flex(center, center, column);
     @include tablet {
-      @include flex(flex-start, center);
+      @include flex;
     }
   }
   &__logo {
@@ -28,10 +24,13 @@ body {
     margin: auto;
   }
   &__nav-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex;
     width: 100%;
+    @include tablet {
+      width: 30%;
+      align-content: center;
+      margin-right: auto;
+    }
   }
   &__nav-link {
     text-decoration: none;
@@ -46,11 +45,15 @@ body {
       font-weight: 700;
       @include tablet {
         border-bottom: 2px solid $primary-white;
+        padding: 20px 0;
       }
     }
     &:hover {
       font-weight: 600;
     }
+  }
+  &__nav-item--active {
+    border-bottom: 5px solid red;
   }
 }
 
@@ -73,37 +76,91 @@ body {
 .about {
   &__container {
     margin: $padding;
+    @include tablet {
+      padding: 0 48px;
+    }
   }
-
   &__title {
     // padding: $padding;
   }
-
   &__image {
     width: 100%;
+  }
+  &__quote {
+    @include tablet {
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+    &-author {
+      @include tablet {
+        font-size: 0.8em;
+      }
+    }
+  }
+  &__heading {
+    @include tablet {
+      font-size: 24px;
+      font-weight: 600;
+    }
+  }
+  &__content-container {
+    @include tablet {
+      @include flex;
+    }
   }
 }
 
 .gallery {
+  &__title {
+    padding: $padding;
+  }
   &__container {
     @extend .about__container;
+    @include tablet {
+      padding: 0%;
+      @include flex(space-evenly, center, row);
+      flex-wrap: wrap;
+    }
   }
   &__image {
     width: 100%;
     padding-bottom: 1rem;
+    @include tablet {
+      width: 30%;
+    }
   }
 }
 
 .footer {
+  // @include tablet {
+  //   @include flex(center, center, row);
+  // }
   &__container {
     background-color: $primary-black;
     padding: 0 16px;
     color: $primary-white;
     font-size: 12px;
+    @include tablet {
+      @include flex;
+      flex-wrap: wrap;
+      padding: 0 36px;
+    }
   }
   &__title {
     color: $primary-white;
     padding: 24px 0 16px 0;
+    @include tablet {
+      font-size: 36px;
+      padding: 0;
+    }
+  }
+  &__social-container {
+    @include tablet {
+      margin-top: 24px;
+      width: 33%;
+      @include flex(space-evenly, center, row);
+    }
   }
   &__social-icon {
     width: 20px;
@@ -111,18 +168,34 @@ body {
     object-fit: contain;
     margin-right: 1.25rem;
     margin-bottom: 24px;
+    @include tablet {
+      margin: 0;
+    }
   }
   &__logo {
     padding: 50px 0 16px 0;
+    @include tablet {
+      order: 1;
+      margin-left: auto;
+    }
   }
   &__copyright {
     font-size: 0.95em;
     padding-bottom: 24px;
+    @include tablet {
+      order: 5;
+    }
   }
 }
 
 .contact {
   &__container {
     @include flex(_, _, column);
+    @include tablet {
+      @include flex(space-between, center, row);
+      order: 2;
+      width: 100%;
+      margin-bottom: 24px;
+    }
   }
 }
