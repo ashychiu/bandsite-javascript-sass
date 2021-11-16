@@ -35,4 +35,48 @@ a {
 }
 a:hover {
   opacity: 0.75;
+}
+
+.hero__container {
+  background-image: url(../assets/images/hero-shows.jpg);
+  background-color: rgba(50, 50, 50, 0.5);
+  background-blend-mode: multiply;
+  height: 40vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+@media screen and (min-width: 768px) {
+  .hero__container {
+    height: 100vh;
+    padding: 3rem 2.25rem 2.25rem 2.25rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .hero__container {
+    padding: 0 6.25rem;
+  }
+}
+.hero__title, .hero__tagline {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-top: 10vh;
+  padding: 1.5rem 1rem 1rem 1rem;
+}
+@media screen and (min-width: 768px) {
+  .hero__title, .hero__tagline {
+    margin-top: 40vh;
+    font-size: 3.75rem;
+    line-height: 4.25rem;
+    font-weight: 700;
+  }
+}
+.hero__tagline {
+  margin-top: 0;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
 }/*# sourceMappingURL=shows.css.map */

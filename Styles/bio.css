@@ -254,27 +254,27 @@ a:hover {
   }
 }
 
-.gallery {
+.gallery, .comment {
   background-color: #fafafa;
   padding: 1.5rem 1rem 1rem 1rem;
 }
 @media screen and (min-width: 768px) {
-  .gallery {
+  .gallery, .comment {
     padding: 0 1rem;
   }
 }
 @media screen and (min-width: 1024px) {
-  .gallery {
+  .gallery, .comment {
     padding: 0 3.9375rem;
   }
 }
-.gallery__title {
+.gallery__title, .comment__title {
   font-size: 1.5rem;
   line-height: 2rem;
   font-weight: 700;
 }
 @media screen and (min-width: 768px) {
-  .gallery__title {
+  .gallery__title, .comment__title {
     padding-left: 1.5rem;
     padding-bottom: 0;
     font-size: 2.25rem;
@@ -283,12 +283,12 @@ a:hover {
   }
 }
 @media screen and (min-width: 1024px) {
-  .gallery__title {
+  .gallery__title, .comment__title {
     padding: 3rem 2.25rem 2.25rem 2.25rem;
   }
 }
 @media screen and (min-width: 768px) {
-  .gallery__container {
+  .gallery__container, .comment__container {
     padding-bottom: 1.25rem;
     display: flex;
     justify-content: space-evenly;
@@ -316,6 +316,9 @@ a:hover {
   }
 }
 
+.comment {
+  background-color: #ffffff;
+}
 .footer__container {
   background-color: #323232;
   padding: 0 1rem;

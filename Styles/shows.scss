@@ -2,3 +2,40 @@
 @use "./partials/mixins" as *;
 @use "./partials/typography" as *;
 @use "./partials/variables" as *;
+
+// Tinted image
+// Ref link: https://stackoverflow.com/questions/12112746/how-can-i-tint-a-background-image-with-css/35177384
+.hero {
+  &__container {
+    background-image: url(../assets/images/hero-shows.jpg);
+    background-color: rgb(50, 50, 50, 0.5); //tint color
+    background-blend-mode: multiply; //tinted image overlay
+    height: 40vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    @include tablet {
+      height: 100vh;
+      padding: $tablet-padding;
+    }
+    @include desktop {
+      padding: $desktop-padding;
+    }
+  }
+  &__title {
+    @include page-header;
+    color: $primary-white;
+    margin-top: 10vh;
+    padding: $padding;
+    @include tablet {
+      margin-top: 40vh;
+      @include tablet-page-header;
+    }
+  }
+  &__tagline {
+    @extend .hero__title;
+    margin-top: 0;
+    @include section-header;
+  }
+}
