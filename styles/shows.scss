@@ -10,7 +10,7 @@
     background-image: url(../assets/images/hero-shows.jpg);
     background-color: rgb(50, 50, 50, 0.5); //tint color
     background-blend-mode: multiply; //tinted image overlay
-    height: 40vh;
+    height: 50vh;
     width: 100%;
     background-size: cover;
     background-position: center;
@@ -26,16 +26,26 @@
   &__title {
     @include page-header;
     color: $primary-white;
-    margin-top: 10vh;
-    padding: $padding;
+    margin-top: 0;
+    // padding: $padding;
     @include tablet {
-      margin-top: 40vh;
+      margin-top: 10vh;
       @include tablet-page-header;
     }
   }
   &__tagline {
-    @extend .hero__title;
+    color: $primary-white;
+    padding: 16px;
     margin-top: 0;
-    @include section-header;
+    @include subheader;
+    @include tablet {
+      @include section-header;
+    }
+  }
+  &__soundcloud {
+    width: 100%;
+    height: 166px;
+    font-size: 10px;
+    color: $primary-silver;
   }
 }

@@ -41,7 +41,7 @@ a:hover {
   background-image: url(../assets/images/hero-shows.jpg);
   background-color: rgba(50, 50, 50, 0.5);
   background-blend-mode: multiply;
-  height: 40vh;
+  height: 50vh;
   width: 100%;
   background-size: cover;
   background-position: center;
@@ -58,25 +58,39 @@ a:hover {
     padding: 0 6.25rem;
   }
 }
-.hero__title, .hero__tagline {
+.hero__title {
   font-size: 1.5rem;
   line-height: 2rem;
   font-weight: 700;
   color: #ffffff;
-  margin-top: 10vh;
-  padding: 1.5rem 1rem 1rem 1rem;
+  margin-top: 0;
 }
 @media screen and (min-width: 768px) {
-  .hero__title, .hero__tagline {
-    margin-top: 40vh;
+  .hero__title {
+    margin-top: 10vh;
     font-size: 3.75rem;
     line-height: 4.25rem;
     font-weight: 700;
   }
 }
 .hero__tagline {
+  color: #ffffff;
+  padding: 16px;
   margin-top: 0;
-  font-size: 1.5rem;
-  line-height: 2rem;
-  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+  font-weight: 600;
+}
+@media screen and (min-width: 768px) {
+  .hero__tagline {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 700;
+  }
+}
+.hero__soundcloud {
+  width: 100%;
+  height: 166px;
+  font-size: 10px;
+  color: #afafaf;
 }/*# sourceMappingURL=shows.css.map */
