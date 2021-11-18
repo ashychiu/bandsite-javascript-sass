@@ -1,19 +1,19 @@
 @font-face {
   font-family: "Avenir";
-  src: url("../../Assets/Font/AvenirNextLTPro-Regular.woff") format("woff");
-  src: url("../../Assets/Font/AvenirNextLTPro-Regular.woff2") format("woff2");
+  src: url("../../assets/fonts/AvenirNextLTPro-Regular.woff") format("woff");
+  src: url("../../assets/fonts/AvenirNextLTPro-Regular.woff2") format("woff2");
   font-weight: 400;
 }
 @font-face {
   font-family: "Avenir";
-  src: url("../../Assets/Font/AvenirNextLTPro-Demi.woff") format("woff");
-  src: url("../../Assets/Font/AvenirNextLTPro-Demi.woff2") format("woff2");
+  src: url("../../assets/fonts/AvenirNextLTPro-Demi.woff") format("woff");
+  src: url("../../assets/fonts/AvenirNextLTPro-Demi.woff2") format("woff2");
   font-weight: 600;
 }
 @font-face {
   font-family: "Avenir";
-  src: url("../../Assets/Font/AvenirNextLTPro-Bold.woff") format("woff");
-  src: url("../../Assets/Font/AvenirNextLTPro-Bold.woff2") format("woff2");
+  src: url("../../assets/fonts/AvenirNextLTPro-Bold.woff") format("woff");
+  src: url("../../assets/fonts/AvenirNextLTPro-Bold.woff2") format("woff2");
   font-weight: 700;
 }
 *,
@@ -35,6 +35,11 @@ a {
 }
 a:hover {
   opacity: 0.75;
+}
+
+hr {
+  border-top: 1px solid #e1e1e1;
+  width: 100%;
 }
 
 .hero__container {

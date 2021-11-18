@@ -1,19 +1,19 @@
 @font-face {
   font-family: "Avenir";
-  src: url("../../Assets/Font/AvenirNextLTPro-Regular.woff") format("woff");
-  src: url("../../Assets/Font/AvenirNextLTPro-Regular.woff2") format("woff2");
+  src: url("../../assets/fonts/AvenirNextLTPro-Regular.woff") format("woff");
+  src: url("../../assets/fonts/AvenirNextLTPro-Regular.woff2") format("woff2");
   font-weight: 400;
 }
 @font-face {
   font-family: "Avenir";
-  src: url("../../Assets/Font/AvenirNextLTPro-Demi.woff") format("woff");
-  src: url("../../Assets/Font/AvenirNextLTPro-Demi.woff2") format("woff2");
+  src: url("../../assets/fonts/AvenirNextLTPro-Demi.woff") format("woff");
+  src: url("../../assets/fonts/AvenirNextLTPro-Demi.woff2") format("woff2");
   font-weight: 600;
 }
 @font-face {
   font-family: "Avenir";
-  src: url("../../Assets/Font/AvenirNextLTPro-Bold.woff") format("woff");
-  src: url("../../Assets/Font/AvenirNextLTPro-Bold.woff2") format("woff2");
+  src: url("../../assets/fonts/AvenirNextLTPro-Bold.woff") format("woff");
+  src: url("../../assets/fonts/AvenirNextLTPro-Bold.woff2") format("woff2");
   font-weight: 700;
 }
 *,
@@ -37,19 +37,24 @@ a:hover {
   opacity: 0.75;
 }
 
+hr {
+  border-top: 1px solid #e1e1e1;
+  width: 100%;
+}
+
 .header__container {
   background-color: #323232;
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-direction: column;
 }
 @media screen and (min-width: 768px) {
   .header__container {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: _;
+    align-items: flex-start;
     flex-direction: row;
     padding-left: 2.25rem;
   }
@@ -74,7 +79,6 @@ a:hover {
   .header__nav-container {
     width: 30%;
     align-content: center;
-    margin-right: auto;
   }
 }
 @media screen and (min-width: 1024px) {
@@ -86,6 +90,7 @@ a:hover {
   width: 100%;
   margin: auto;
   text-align: center;
+  color: #e1e1e1;
 }
 @media screen and (min-width: 1024px) {
   .header__nav-link {
@@ -106,9 +111,6 @@ a:hover {
 .header__nav-link:hover {
   color: #ffffff;
   font-weight: 600;
-}
-.header__nav-link--inactive {
-  color: #e1e1e1;
 }
 
 .hero__container {
@@ -287,8 +289,11 @@ a:hover {
     padding: 3rem 2.25rem 2.25rem 2.25rem;
   }
 }
+.gallery__container {
+  width: 100%;
+}
 @media screen and (min-width: 768px) {
-  .gallery__container, .comment__container {
+  .gallery__container {
     padding-bottom: 1.25rem;
     display: flex;
     justify-content: space-evenly;
@@ -316,9 +321,6 @@ a:hover {
   }
 }
 
-.comment {
-  background-color: #ffffff;
-}
 .footer__container {
   background-color: #323232;
   padding: 0 1rem;
@@ -428,7 +430,7 @@ a:hover {
 .contact__container {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
 }
 @media screen and (min-width: 768px) {
@@ -445,5 +447,109 @@ a:hover {
 @media screen and (min-width: 1024px) {
   .contact__container {
     width: 75%;
+  }
+}
+
+.comment {
+  background-color: #ffffff;
+}
+.comment p {
+  margin-top: 0;
+  padding-top: 0;
+}
+.comment__avatar, .comment__form-avatar {
+  align-self: flex-start;
+  padding-right: 16px;
+}
+.comment__form-avatar {
+  padding-top: 16px;
+}
+.comment__avatar, .comment__form-avatar {
+  align-self: flex-start;
+}
+.comment__form {
+  flex-grow: 2;
+}
+.comment__list-container, .comment__form-container {
+  width: 100%;
+  display: flex;
+  padding: 1.5rem 1rem 1rem 1rem;
+}
+.comment__avatar-container {
+  width: 40%;
+}
+.comment__container2 {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+.comment__name {
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+  font-weight: 600;
+}
+.comment__date {
+  color: #afafaf;
+}
+
+label {
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+  font-weight: 400;
+  color: #afafaf;
+}
+
+input::-moz-placeholder {
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+  font-weight: 400;
+}
+
+input:-ms-input-placeholder {
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+  font-weight: 400;
+}
+
+input::placeholder {
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+  font-weight: 400;
+}
+
+button {
+  background-color: #323232;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  border-radius: 4px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+  font-weight: 600;
+}
+
+input[type=text],
+textarea {
+  width: 100%;
+  height: 36px;
+  padding: 12px;
+  border: 1px solid #e1e1e1;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+  margin: 4px 0;
+}
+input[type=text]:active,
+textarea:active {
+  border: 1px solid #323232;
+  background: blueviolet;
+}
+@media screen and (min-width: 768px) {
+  input[type=text],
+textarea {
+    height: 48px;
+    padding: 16px;
   }
 }/*# sourceMappingURL=bio.css.map */
