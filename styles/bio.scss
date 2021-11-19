@@ -309,26 +309,35 @@
     @extend .gallery__title;
   }
   &__form-container {
-    @extend .comment__list-container;
-  }
-  &__avatar {
-    align-self: flex-start;
-    padding-right: 16px;
-  }
-  &__form-avatar {
-    @extend .comment__avatar;
-    padding-top: 16px;
-  }
-  &__avatar {
-    align-self: flex-start;
-  }
-  &__form {
-    flex-grow: 2;
-  }
-  &__list-container {
     width: 100%;
     display: flex;
     padding: $padding;
+  }
+  &__avatar {
+    align-self: flex-start;
+    margin: 0 16px 16px 0;
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
+    border-radius: 50%;
+    @include tablet {
+      width: 48px;
+      height: 48px;
+    }
+  }
+  &__form-avatar {
+    @extend .comment__avatar;
+    margin-top: 16px;
+  }
+  &__form {
+    flex-grow: 2;
+    @include tablet {
+      flex-grow: 0.5;
+    }
+  }
+  &__list-container {
+    display: flex;
+    flex-direction: column;
   }
   &__avatar-container {
     width: 40%;

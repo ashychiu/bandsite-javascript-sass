@@ -16,12 +16,12 @@
             src="./assets/logo/Logo-bandsite.svg"
             alt="Bandsite Logo"
         /></a>
-        <div class="header__nav-container">
+        <nav class="header__nav-container">
           <a class="header__nav-link header__nav-link--active" href="index.html"
             >Biography</a
-          ></p>
-          <a class="header__nav-link header__nav-link--inactive" href="./pages/shows.html">Shows</a>
-        </div>
+          >
+          <a class="header__nav-link" href="./pages/shows.html">Shows</a>
+        </nav>
       </div>
     </header>
     <main>
@@ -30,7 +30,7 @@
           <h1 class="hero__title">The Bees Knees</h1>
         </div>
       </section>
-      <article class="about">  
+      <article class="about">
         <h2 class="about__title">About the Musicians</h2>
         <div class="about__container">
           <img class="about__image" src="./Assets/images/band.jpg" />
@@ -68,7 +68,7 @@
           </div>
         </div>
       </article>
-      <article class="gallery">
+      <section class="gallery">
         <h2 class="gallery__title">Photo Gallery</h2>
         <div class="gallery__container">
           <img
@@ -117,20 +117,45 @@
             alt="photo gallery image"
           />
         </div>
-      </article>
+      </section>
       <section class="comment">
         <h2 class="comment__title">Join the Conversation</h2>
-        <div class="comment__container">
-<form class="comment__form">
-  <label for="name">NAME</label><br />
-  <input type="text" id="name" name="name" placeholder="Enter your name"/><br />
-  <label for="name">COMMENT</label><br />
-  <textarea type="textbox" id="comment-content" name="comment-content">Add a new comment</textarea><br />
-  <button>COMMENT</button>
-</form>
+        <div class="comment__form-container">
+          <!-- <div class="comment__avatar-container"> -->
+          <img
+            class="comment__form-avatar"
+            src="./assets/images/Mohan-muruge.jpg"
+          />
+          <!-- </div> -->
+          <form id="comment__form" class="comment__form">
+            <label for="name">NAME</label><br />
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Enter your name"
+            /><br />
+            <label for="name">COMMENT</label><br />
+            <textarea
+              type="textbox"
+              id="comment"
+              name="comment"
+              rows="20"
+              placeholder="Add a new comment"
+            ></textarea
+            ><br />
+            <input type="hidden" id="date" name="date" value="CurrentDate" />
+            <button id="submitBtn" type="submit">COMMENT</button>
+          </form>
         </div>
+        <hr class="comment__divider" />
+
+        <!-- List of existing comments -->
+        <div class="comment__list-container"></div>
+        <!-- <hr class="comment__divider" /> -->
       </section>
     </main>
+
     <footer class="footer">
       <div class="footer__container">
         <h2 class="footer__title">Get in Touch</h2>
@@ -165,36 +190,35 @@
         </div>
         <div class="contact__container">
           <div class="contact__container2">
-            <p class="contact__title">Cam Adams<br />The Bees Knees Management
+            <p class="contact__title">
+              Cam Adams<br />The Bees Knees Management
             </p>
             <p class="contact__info">
               503 Broadway Penthouse, <br />New York, NY 10012, USA
             </p>
             <!-- Mailto Link -->
-              <a href="mailto:info@thebeesknees.com"
-                >info@thebeesknees.com</a
-              >
+            <a href="mailto:info@thebeesknees.com">info@thebeesknees.com</a>
           </div>
           <div class="contact__container2">
-            <p class="contact__title">Pearl Gregg <br />Limitless Artist Group
+            <p class="contact__title">
+              Pearl Gregg <br />Limitless Artist Group
             </p>
             <p class="contact__info">
               Booking Agent for<br />
               US / South America / Japan
             </p>
-             <!-- Mailto Link -->
+            <!-- Mailto Link -->
             <a href="mailto:pearl.gregg@limitlessag.com"
               >pearl.gregg@limitlessag.com</a
             >
           </div>
           <div class="contact__container2">
-            <p class="contact__title">Carson Whyte <br />ARCH Entertainment
-            </p>
+            <p class="contact__title">Carson Whyte <br />ARCH Entertainment</p>
             <p class="contact__info">
               Booking Agent for<br />
               UK / EU / AU
             </p>
-             <!-- Mailto Link -->
+            <!-- Mailto Link -->
             <a href="mailto:cwhyte@archentertainment.com"
               >cwhyte@archentertainment.com</a
             >
@@ -210,5 +234,6 @@
         </p>
       </div>
     </footer>
+    <script src="./scripts/index-page.js"></script>
   </body>
 </html>

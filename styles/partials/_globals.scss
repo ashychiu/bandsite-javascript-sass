@@ -11,7 +11,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "Avenir";
+  font-family: "Avenir", Verdana, Geneva, Tahoma, sans-serif; // Added fallback fonts
 }
 
 a {
@@ -19,8 +19,7 @@ a {
   font-family: "avenir";
   color: $primary-white;
   &:hover {
-    // hover effect on social & email links
-    opacity: 0.75;
+    opacity: 0.75; //overlay hover effect on links
   }
 }
 

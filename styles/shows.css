@@ -25,7 +25,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "Avenir";
+  font-family: "Avenir", Verdana, Geneva, Tahoma, sans-serif;
 }
 
 a {
