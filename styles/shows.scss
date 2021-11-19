@@ -49,3 +49,42 @@
     color: $primary-silver;
   }
 }
+
+.shows {
+  &__title {
+    @include section-header;
+    padding-left: 16px;
+  }
+  &__container {
+    padding: 0 16px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    @include tablet {
+      flex-direction: row;
+    }
+    &:hover {
+      background-color: $secondary-alabaster;
+    }
+    &:active {
+      background-color: $secondary-mercury;
+    }
+  }
+  &__heading {
+    @include subheader;
+    font-weight: 400;
+    color: $primary-silver;
+  }
+  &__date {
+    color: $primary-black;
+    font-weight: 600;
+  }
+  &__venue,
+  &__location {
+    color: $primary-black;
+    font-weight: 400;
+  }
+}
+.buybtn {
+  height: 50px;
+}

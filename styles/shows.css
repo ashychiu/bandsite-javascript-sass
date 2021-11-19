@@ -98,4 +98,47 @@ hr {
   height: 166px;
   font-size: 10px;
   color: #afafaf;
+}
+
+.shows__title {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
+  padding-left: 16px;
+}
+.shows__container {
+  padding: 0 16px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+@media screen and (min-width: 768px) {
+  .shows__container {
+    flex-direction: row;
+  }
+}
+.shows__container:hover {
+  background-color: #fafafa;
+}
+.shows__container:active {
+  background-color: #e1e1e1;
+}
+.shows__heading {
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+  font-weight: 600;
+  font-weight: 400;
+  color: #afafaf;
+}
+.shows__date {
+  color: #323232;
+  font-weight: 600;
+}
+.shows__venue, .shows__location {
+  color: #323232;
+  font-weight: 400;
+}
+
+.buybtn {
+  height: 50px;
 }/*# sourceMappingURL=shows.css.map */
