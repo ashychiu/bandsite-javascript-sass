@@ -123,22 +123,53 @@ hr {
 .shows__container:active {
   background-color: #e1e1e1;
 }
+.shows__container-tablet {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 350px 0 50px;
+}
+.shows__heading-tablet {
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .shows__heading-tablet {
+    display: block;
+    color: #afafaf;
+  }
+}
 .shows__heading {
-  font-size: 0.875rem;
-  line-height: 1.375rem;
-  font-weight: 600;
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+  font-weight: 400;
   font-weight: 400;
   color: #afafaf;
 }
+@media screen and (min-width: 768px) {
+  .shows__heading {
+    display: none;
+  }
+}
 .shows__date {
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+  font-weight: 400;
   color: #323232;
   font-weight: 600;
 }
 .shows__venue, .shows__location {
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+  font-weight: 400;
   color: #323232;
   font-weight: 400;
 }
 
 .buybtn {
   height: 50px;
+}
+@media screen and (min-width: 768px) {
+  .buybtn {
+    width: 200px;
+  }
 }/*# sourceMappingURL=shows.css.map */

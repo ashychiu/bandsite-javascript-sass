@@ -70,21 +70,43 @@
       background-color: $secondary-mercury;
     }
   }
+  &__container-tablet {
+    // background-color: brown;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 350px 0 50px;
+  }
+  &__heading-tablet {
+    display: none;
+    @include tablet {
+      display: block;
+      color: $primary-silver;
+    }
+  }
   &__heading {
-    @include subheader;
+    @include body-copy;
     font-weight: 400;
     color: $primary-silver;
+    @include tablet {
+      display: none;
+    }
   }
   &__date {
+    @include body-copy;
     color: $primary-black;
     font-weight: 600;
   }
   &__venue,
   &__location {
+    @include body-copy;
     color: $primary-black;
     font-weight: 400;
   }
 }
 .buybtn {
   height: 50px;
+  @include tablet {
+    width: 200px;
+  }
 }

@@ -9,10 +9,11 @@
     width: 100%;
     @include flex(space-between, center, column);
     @include tablet {
-      @include flex(_, flex-start, row);
+      @include flex(flex-start, flex-start, row);
       padding-left: 2.25rem;
     }
     @include desktop {
+      @include flex(flex-start, flex-start, row);
       padding: $desktop-padding;
     }
   }
@@ -311,7 +312,11 @@
   &__form-container {
     width: 100%;
     display: flex;
-    padding: $padding;
+    // padding: $padding;
+    @include tablet {
+      background-color: blueviolet;
+      justify-content: center;
+    }
   }
   &__avatar {
     align-self: flex-start;
@@ -339,19 +344,36 @@
     display: flex;
     flex-direction: column;
   }
-  &__avatar-container {
-    width: 40%;
+  &__container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+  &__input-container {
+    width: 50%;
+  }
+  // &__avatar-container {
+  //   // width: 40%;
+  // }
+  &__container1 {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 2;
   }
   &__container2 {
     display: flex;
     justify-content: space-between;
     align-content: center;
+    flex-grow: 1;
   }
   &__name {
     @include subheader;
   }
   &__date {
     color: $primary-silver;
+  }
+  &__content {
+    text-align: left;
   }
 }
 
@@ -361,16 +383,14 @@ label {
   color: $primary-silver;
 }
 
-input::placeholder {
-  @include body-copy;
+input::placeholder,
+textarea::placeholder {
+  font-family: "Avenir", Verdana, Geneva, Tahoma, sans-serif;
 }
-
-// textarea::placeholder {
-//   @include body-copy; // not sure why it's not working
-// }
 
 button {
   background-color: $primary-black;
+  width: 100%;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -383,20 +403,31 @@ button {
 // Ref: https://www.w3schools.com/howto/howto_css_responsive_form.asp
 input[type="text"],
 textarea {
+  font-family: "Avenir", Verdana, Geneva, Tahoma, sans-serif;
   width: 100%;
-  height: 36px;
+  // height: 36px;
   padding: 12px;
   border: 1px solid $secondary-mercury;
   border-radius: 4px;
   box-sizing: border-box;
   resize: vertical;
   margin: 4px 0;
+  outline: none;
+  background-color: $secondary-alabaster;
   &:active {
     border: 1px solid $primary-black;
-    background: blueviolet; // just for testing
   }
   @include tablet {
-    height: 48px;
+    // height: 48px;
     padding: 16px;
   }
 }
+
+// .onClick {
+//   border: 1px solid $primary-black;
+// }
+
+// input::error {
+//   border: 1px solid #d22d2d;
+//   background-color: blueviolet;
+// }

@@ -121,38 +121,39 @@
       <section class="comment">
         <h2 class="comment__title">Join the Conversation</h2>
         <div class="comment__form-container">
-          <!-- <div class="comment__avatar-container"> -->
-          <img
-            class="comment__form-avatar"
-            src="./assets/images/Mohan-muruge.jpg"
-          />
-          <!-- </div> -->
-          <form id="comment__form" class="comment__form">
-            <label for="name">NAME</label><br />
-            <input
-              type="text"
-              id="name"
-              name="name"
-              placeholder="Enter your name"
-            /><br />
-            <label for="name">COMMENT</label><br />
-            <textarea
-              type="textbox"
-              id="comment"
-              name="comment"
-              rows="20"
-              placeholder="Add a new comment"
-            ></textarea
-            ><br />
-            <input type="hidden" id="date" name="date" value="CurrentDate" />
-            <button id="submitBtn" type="submit">COMMENT</button>
-          </form>
+          <div class="comment__avatar-container">
+            <img
+              class="comment__form-avatar"
+              src="./assets/images/Mohan-muruge.jpg"
+            />
+          </div>
+          <div class="comment__input-container">
+            <form id="comment__form" class="comment__form">
+              <label for="name">NAME</label><br />
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Enter your name"
+              /><br />
+              <label for="name">COMMENT</label><br />
+              <textarea
+                type="textbox"
+                id="comment"
+                name="comment"
+                rows="5"
+                placeholder="Add a new comment"
+              ></textarea
+              ><br />
+              <input type="hidden" id="date" name="date" value="CurrentDate" />
+              <button id="submitBtn" type="submit">COMMENT</button>
+            </form>
+          </div>
         </div>
         <hr class="comment__divider" />
 
-        <!-- List of existing comments -->
+        <!-- DOM start here: List of comments -->
         <div class="comment__list-container"></div>
-        <!-- <hr class="comment__divider" /> -->
       </section>
     </main>
 

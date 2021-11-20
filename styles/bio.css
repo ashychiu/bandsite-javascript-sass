@@ -53,7 +53,7 @@ hr {
 @media screen and (min-width: 768px) {
   .header__container {
     display: flex;
-    justify-content: _;
+    justify-content: flex-start;
     align-items: flex-start;
     flex-direction: row;
     padding-left: 2.25rem;
@@ -61,6 +61,10 @@ hr {
 }
 @media screen and (min-width: 1024px) {
   .header__container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
     padding: 0 6.25rem;
   }
 }
@@ -460,7 +464,12 @@ hr {
 .comment__form-container {
   width: 100%;
   display: flex;
-  padding: 1.5rem 1rem 1rem 1rem;
+}
+@media screen and (min-width: 768px) {
+  .comment__form-container {
+    background-color: blueviolet;
+    justify-content: center;
+  }
 }
 .comment__avatar, .comment__form-avatar {
   align-self: flex-start;
@@ -492,13 +501,24 @@ hr {
   display: flex;
   flex-direction: column;
 }
-.comment__avatar-container {
-  width: 40%;
+.comment__container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.comment__input-container {
+  width: 50%;
+}
+.comment__container1 {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 2;
 }
 .comment__container2 {
   display: flex;
   justify-content: space-between;
   align-content: center;
+  flex-grow: 1;
 }
 .comment__name {
   font-size: 0.875rem;
@@ -508,6 +528,9 @@ hr {
 .comment__date {
   color: #afafaf;
 }
+.comment__content {
+  text-align: left;
+}
 
 label {
   font-size: 0.8125rem;
@@ -516,26 +539,22 @@ label {
   color: #afafaf;
 }
 
-input::-moz-placeholder {
-  font-size: 0.8125rem;
-  line-height: 1.125rem;
-  font-weight: 400;
+input::-moz-placeholder, textarea::-moz-placeholder {
+  font-family: "Avenir", Verdana, Geneva, Tahoma, sans-serif;
 }
 
-input:-ms-input-placeholder {
-  font-size: 0.8125rem;
-  line-height: 1.125rem;
-  font-weight: 400;
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+  font-family: "Avenir", Verdana, Geneva, Tahoma, sans-serif;
 }
 
-input::placeholder {
-  font-size: 0.8125rem;
-  line-height: 1.125rem;
-  font-weight: 400;
+input::placeholder,
+textarea::placeholder {
+  font-family: "Avenir", Verdana, Geneva, Tahoma, sans-serif;
 }
 
 button {
   background-color: #323232;
+  width: 100%;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -549,24 +568,24 @@ button {
 
 input[type=text],
 textarea {
+  font-family: "Avenir", Verdana, Geneva, Tahoma, sans-serif;
   width: 100%;
-  height: 36px;
   padding: 12px;
   border: 1px solid #e1e1e1;
   border-radius: 4px;
   box-sizing: border-box;
   resize: vertical;
   margin: 4px 0;
+  outline: none;
+  background-color: #fafafa;
 }
 input[type=text]:active,
 textarea:active {
   border: 1px solid #323232;
-  background: blueviolet;
 }
 @media screen and (min-width: 768px) {
   input[type=text],
 textarea {
-    height: 48px;
     padding: 16px;
   }
 }/*# sourceMappingURL=bio.css.map */

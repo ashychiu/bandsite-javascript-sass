@@ -35,49 +35,57 @@ let comments = [
 // Comment list element
 let commentsList = document.querySelector(".comment__list-container");
 
-// Append commend card to comment list
-for (let i = 0; i < comments.length; i++) {
-  let comment = comments[i];
-  let commentCard = displayComment(comment);
-  commentsList.appendChild(commentCard);
+// Using forEach to append comment
+function displayComments() {
+  comments.forEach((comment) => {
+    let commentCard = displayComment(comment);
+    commentsList.appendChild(commentCard);
+    let hr = document.createElement("hr");
+    hr.classList.add("comment__divider");
+    commentsList.appendChild(hr);
+  });
 }
-console.log(comment);
+displayComments();
+
+// Append commend card to comment list
+// for (let i = 0; i < comments.length; i++) {
+//   let comment = comments[i];
+//   let commentCard = displayComment(comment);
+//   commentsList.appendChild(commentCard);
+// }
+// console.log(comment);
 
 // Comment card
 function displayComment(comment) {
-  let commentCard = document.createElement("section");
-  commentCard.classList.add("comment__section");
+  let commentCard = document.createElement("div");
+  commentCard.classList.add("comment__container");
 
-  let container1 = document.createElement("div");
-  container1.classList.add("comment__container1");
-  commentsList.appendChild(container1);
+  let avatarContainer = document.createElement("div");
+  avatarContainer.classList.add("comment__avatar-container");
+  commentCard.appendChild(avatarContainer);
 
   let avatarElement = createAvatarElement(comment.image);
-  commentsList.appendChild(avatarElement);
+  avatarContainer.appendChild(avatarElement);
 
   let anotherContainer = document.createElement("div");
   anotherContainer.classList.add("comment__container1");
-  commentsList.appendChild(anotherContainer);
+  commentCard.appendChild(anotherContainer);
 
   let container2 = document.createElement("div");
   container2.classList.add("comment__container2");
-  commentsList.appendChild(container2);
+  anotherContainer.appendChild(container2);
 
   let commentName = createCommentName(comment);
-  commentsList.appendChild(commentName);
   let commentDate = createCommentDate(comment);
-  commentsList.appendChild(commentDate);
+  container2.append(commentName, commentDate);
+  // container2.appendChild(commentDate);
 
   let anotherContainer2 = document.createElement("div");
   anotherContainer2.classList.add("comment__container2");
-  commentsList.appendChild(anotherContainer2);
+  anotherContainer.appendChild(anotherContainer2);
 
   let commentContent = createCommentContent(comment);
-  commentsList.appendChild(commentContent);
-
-  let hr = document.createElement("hr");
-  hr.classList.add("comment__divider");
-  commentsList.appendChild(hr);
+  anotherContainer2.appendChild(commentContent);
 
   return commentCard;
 }
@@ -89,20 +97,15 @@ function createAvatarElement(image) {
   // avatarImg.setAttribute('src', '/images/' + image.url);
   avatarImg.src = "./assets/images/" + image.url;
   avatarImg.alt = image.alt;
-
   return avatarImg;
 }
 
 function createCommentName(comment) {
-  // <div class="comment__container2">
-  // let cardContent = document.createElement("div");
-  // cardContent.classList.add("comment__container2");
-
   // <p class="comment__name">Connor Walton</p>
   let commentName = document.createElement("p");
   commentName.classList.add("comment__name");
   commentName.innerText = comment.name;
-  commentsList.appendChild(commentName);
+  // commentsList.appendChild(commentName);
   return commentName;
 }
 
@@ -111,23 +114,21 @@ function createCommentDate(comment) {
   let commentDate = document.createElement("p");
   commentDate.classList.add("comment__date");
   commentDate.innerText = comment.date;
-  commentsList.appendChild(commentDate);
+  // commentsList.appendChild(commentDate);
   return commentDate;
 }
 
 function createCommentContent(comment) {
   // <p class="comment__content">
   let commentContent = document.createElement("p");
+  commentContent.classList.add("comment__content");
   commentContent.innerText = comment.content;
-  commentsList.appendChild(commentContent);
+  // commentsList.appendChild(commentContent);
 
   return commentContent;
 }
 
 //---------------------------------------------
-// Push new comment to the array when submit
-const form = document.getElementById("comment__form");
-
 // Get current date
 // Ref: https://stackoverflow.com/questions/1531093/how-do-i-get-the-current-date-in-javascript
 let today = new Date();
@@ -136,7 +137,17 @@ let mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
 let yyyy = today.getFullYear();
 today = mm + "/" + dd + "/" + yyyy;
 
-// Add eventListener to form
+// Add eventListener to form input
+// form.name.addEventListener("click", (event) => {
+//   event.preventDefault();
+//   form.name.classList.add("onClick");
+//   console.log(event);
+// });
+
+// Push new comment to the array when submit
+const form = document.getElementById("comment__form");
+
+// Add eventListener to form submission
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   // form validation
@@ -157,11 +168,15 @@ form.addEventListener("submit", (event) => {
       },
       content: event.target.comment.value,
     };
+    //puch new comment to be first object
     comments.unshift(newCommentObject);
-    displayComment(newCommentObject);
-    // for checking purpose
-    console.log(newCommentObject);
-    console.log(comments);
+
+    //clear the existing comments
+    commentsList.innerHTML = "";
+
+    //display the new array of comments
+    displayComments();
+
     // Reset form after sucessful submission
     event.target.reset();
   }

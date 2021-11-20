@@ -34,59 +34,62 @@ let shows = [
 ];
 
 // shows list element
-let showsList = document.querySelector(".shows__title");
+let showsList = document.querySelector(".shows__details");
 
 // Append show card to shows list
-for (let i = 0; i < shows.length; i++) {
-  let show = shows[i];
-  let showCard = displayShow(show);
-  showsList.appendChild(showCard);
+function displayShows() {
+  shows.forEach((show) => {
+    let showCard = displayShow(show);
+    showsList.appendChild(showCard);
+    let hr = document.createElement("hr");
+    hr.classList.add("shows__divider");
+    showsList.appendChild(hr);
+  });
 }
+displayShows();
 
-// Show card
+// Creat show card
 function displayShow(show) {
   let showCard = document.createElement("div");
-  showsList.classList.add("shows__container2");
+  showCard.classList.add("shows__container");
 
   let showItemDate = document.createElement("p");
   showItemDate.classList.add("shows__heading");
   showItemDate.innerText = "DATE";
-  showsList.appendChild(showItemDate);
 
   let showDate = document.createElement("span");
   showDate.classList.add("shows__date");
   showDate.innerText = show.date;
-  showsList.appendChild(showDate);
 
   let showItemVenue = document.createElement("p");
   showItemVenue.classList.add("shows__heading");
-
   showItemVenue.innerText = "VENUE";
-  showsList.appendChild(showItemVenue);
 
   let showVenue = document.createElement("span");
   showVenue.classList.add("shows__venue");
   showVenue.innerText = show.venue;
-  showsList.appendChild(showVenue);
 
   let showItemLocation = document.createElement("p");
   showItemLocation.classList.add("shows__heading");
   showItemLocation.innerText = "LOCATION";
-  showsList.appendChild(showItemLocation);
 
   let showLocation = document.createElement("p");
   showLocation.classList.add("shows__location");
   showLocation.innerText = show.location;
-  showsList.appendChild(showLocation);
 
   let buyButton = document.createElement("button");
   buyButton.classList.add("buybtn");
   buyButton.innerText = "BUY TICKETS";
-  showsList.appendChild(buyButton);
 
-  let hr = document.createElement("hr");
-  hr.classList.add("comment__divider");
-  showsList.appendChild(hr);
+  showCard.append(
+    showItemDate,
+    showDate,
+    showItemVenue,
+    showVenue,
+    showItemLocation,
+    showLocation,
+    buyButton
+  );
 
   return showCard;
 }
