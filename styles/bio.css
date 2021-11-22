@@ -467,8 +467,7 @@ hr {
 }
 @media screen and (min-width: 768px) {
   .comment__form-container {
-    background-color: blueviolet;
-    justify-content: center;
+    padding-left: 10%;
   }
 }
 .comment__avatar, .comment__form-avatar {
@@ -501,6 +500,11 @@ hr {
   display: flex;
   flex-direction: column;
 }
+@media screen and (min-width: 768px) {
+  .comment__list-container {
+    padding: 0 10%;
+  }
+}
 .comment__container {
   width: 100%;
   display: flex;
@@ -508,6 +512,11 @@ hr {
 }
 .comment__input-container {
   width: 50%;
+}
+@media screen and (min-width: 768px) {
+  .comment__input-container {
+    flex-grow: 0.5;
+  }
 }
 .comment__container1 {
   display: flex;
@@ -518,6 +527,7 @@ hr {
   display: flex;
   justify-content: space-between;
   align-content: center;
+  padding: 0 10%;
   flex-grow: 1;
 }
 .comment__name {
@@ -525,11 +535,42 @@ hr {
   line-height: 1.375rem;
   font-weight: 600;
 }
+@media screen and (min-width: 768px) {
+  .comment__name {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+    font-weight: 400;
+    font-weight: 600;
+  }
+}
 .comment__date {
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+  font-weight: 400;
   color: #afafaf;
 }
+@media screen and (min-width: 768px) {
+  .comment__date {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+    font-weight: 400;
+  }
+}
 .comment__content {
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+  font-weight: 400;
   text-align: left;
+}
+@media screen and (min-width: 768px) {
+  .comment__content {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+    font-weight: 400;
+  }
+}
+.comment__main-divider {
+  width: 80%;
 }
 
 label {
@@ -552,7 +593,7 @@ textarea::placeholder {
   font-family: "Avenir", Verdana, Geneva, Tahoma, sans-serif;
 }
 
-button {
+#submitButton {
   background-color: #323232;
   width: 100%;
   border: none;
@@ -564,6 +605,14 @@ button {
   font-size: 0.875rem;
   line-height: 1.375rem;
   font-weight: 600;
+}
+@media screen and (min-width: 768px) {
+  #submitButton {
+    width: 40%;
+    margin-left: 60%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
 }
 
 input[type=text],

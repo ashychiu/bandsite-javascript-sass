@@ -314,8 +314,7 @@
     display: flex;
     // padding: $padding;
     @include tablet {
-      background-color: blueviolet;
-      justify-content: center;
+      padding-left: 10%;
     }
   }
   &__avatar {
@@ -343,6 +342,9 @@
   &__list-container {
     display: flex;
     flex-direction: column;
+    @include tablet {
+      padding: 0 10%;
+    }
   }
   &__container {
     width: 100%;
@@ -351,6 +353,9 @@
   }
   &__input-container {
     width: 50%;
+    @include tablet {
+      flex-grow: 0.5;
+    }
   }
   // &__avatar-container {
   //   // width: 40%;
@@ -364,16 +369,32 @@
     display: flex;
     justify-content: space-between;
     align-content: center;
+    padding: 0 10%;
     flex-grow: 1;
   }
   &__name {
     @include subheader;
+    @include tablet {
+      @include tablet-body-copy;
+      font-weight: 600;
+    }
   }
   &__date {
+    @include body-copy;
     color: $primary-silver;
+    @include tablet {
+      @include tablet-body-copy;
+    }
   }
   &__content {
+    @include body-copy;
     text-align: left;
+    @include tablet {
+      @include tablet-body-copy;
+    }
+  }
+  &__main-divider {
+    width: 80%;
   }
 }
 
@@ -388,16 +409,26 @@ textarea::placeholder {
   font-family: "Avenir", Verdana, Geneva, Tahoma, sans-serif;
 }
 
-button {
+#submitButton {
   background-color: $primary-black;
   width: 100%;
   border: none;
-  color: white;
+  color: $primary-white;
   padding: 15px 32px;
   border-radius: 4px;
   text-align: center;
   text-decoration: none;
   @include subheader;
+  @include tablet {
+    width: 40%;
+    margin-left: 60%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  //hover effect on submit button
+  &:hover {
+    background-color: $secondary-black;
+  }
 }
 
 // Ref: https://www.w3schools.com/howto/howto_css_responsive_form.asp

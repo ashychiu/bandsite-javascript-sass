@@ -33,7 +33,7 @@ let shows = [
   },
 ];
 
-// shows list element
+// Define shows list element
 let showsList = document.querySelector(".shows__details");
 
 // Append show card to shows list
@@ -78,7 +78,7 @@ function displayShow(show) {
   showLocation.innerText = show.location;
 
   let buyButton = document.createElement("button");
-  buyButton.classList.add("buybtn");
+  buyButton.classList.add("buy-button");
   buyButton.innerText = "BUY TICKETS";
 
   showCard.append(
@@ -93,3 +93,98 @@ function displayShow(show) {
 
   return showCard;
 }
+
+// [].forEach.call(showContainers, function (showContainer) {
+//   showContainer.addEventListener('mouseover', () {
+//     alert("mouse over test!")
+//   , false);
+//   }
+// Alternating on-click effect
+// Ref: https://stackoverflow.com/questions/28412671/how-can-i-highlight-a-link-on-first-click-and-follow-it-on-second-click-unless
+
+let showContainers = document.querySelectorAll(".shows__container");
+
+document.body.addEventListener(
+  "click",
+  function (e) {
+    [].forEach.call(showContainers, function (showContainer) {
+      // Remove onClick when clicking other areas of the page
+      if (e.target !== showContainer) {
+        showContainer.classList.remove("onClick");
+      }
+    });
+  },
+  false
+);
+
+[].forEach.call(showContainers, function (showContainer) {
+  showContainer.addEventListener(
+    "click",
+    (function (e) {
+      let clicked = false;
+      return function (e) {
+        // prevent trigger from clicking chilren
+        // ref: https://stackoverflow.com/questions/13918441/javascript-addeventlistener-without-selecting-children
+        if (e.currentTarget !== e.target) {
+          return;
+        }
+        // add "onClick" to class list if it's not already clicked
+        if (!clicked) {
+          e.preventDefault();
+          e.target.classList.add("onClick");
+          clicked = true;
+        } else {
+          // remove onClick if it's already there
+          clicked = e.target.classList.contains("onClick");
+          if (clicked) {
+            e.target.classList.remove("onClick");
+          } else {
+            e.preventDefault();
+            e.target.classList.add("onClick");
+            clicked = true;
+          }
+        }
+      };
+    })(),
+    false
+  );
+});
+
+// function activeShow() {
+//   showContainers.forEach((showContainer) => {
+//     showContainer.addEventListener("click", () => {
+//       console.log("testing");
+//       showContainer.classList.add("onClick");
+//     });
+//   });
+// }
+// activeShow();
+
+// function removeActive() {
+//   showContainers.forEach((showContainer) => {
+//     if (showContainer.classList.contains(".onClick")) {
+//       showContainers.classList.remove(".onClick");
+//       console.log("contains onClick");
+//     }
+//   });
+// }
+// removeActive();
+
+// function handleActiveShow() {
+//   showContainer.addEventListener("Click", () => {});
+// }
+// handleActiveShow();
+
+//   if (showContainer.classList.contains(".onClick")) {
+//     showContainer.classList.remove(".onClick");
+//     console.log("contains onClick");
+//     showContainer.removeEventListener("mouseover", handleEasterEgg);
+//     easterEgg.removeEventListener("mouseout", handleEasterEgg);
+//   } else {
+//     showContainer.classList.add("onClick");
+//   }
+// });
+// showContainer.addEventListener("onmouseover", () => {
+//   console.log("mouseover test");
+//   showContainer.classList.add("mouseover");
+// });

@@ -137,13 +137,6 @@ let mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
 let yyyy = today.getFullYear();
 today = mm + "/" + dd + "/" + yyyy;
 
-// Add eventListener to form input
-// form.name.addEventListener("click", (event) => {
-//   event.preventDefault();
-//   form.name.classList.add("onClick");
-//   console.log(event);
-// });
-
 // Push new comment to the array when submit
 const form = document.getElementById("comment__form");
 
