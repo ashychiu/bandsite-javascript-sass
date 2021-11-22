@@ -94,15 +94,10 @@ function displayShow(show) {
   return showCard;
 }
 
-// [].forEach.call(showContainers, function (showContainer) {
-//   showContainer.addEventListener('mouseover', () {
-//     alert("mouse over test!")
-//   , false);
-//   }
+let showContainers = document.querySelectorAll(".shows__container");
+
 // Alternating on-click effect
 // Ref: https://stackoverflow.com/questions/28412671/how-can-i-highlight-a-link-on-first-click-and-follow-it-on-second-click-unless
-
-let showContainers = document.querySelectorAll(".shows__container");
 
 document.body.addEventListener(
   "click",
@@ -141,6 +136,7 @@ document.body.addEventListener(
           } else {
             e.preventDefault();
             e.target.classList.add("onClick");
+            console.log("add onClick");
             clicked = true;
           }
         }
@@ -150,41 +146,20 @@ document.body.addEventListener(
   );
 });
 
-// function activeShow() {
-//   showContainers.forEach((showContainer) => {
-//     showContainer.addEventListener("click", () => {
-//       console.log("testing");
-//       showContainer.classList.add("onClick");
-//     });
-//   });
-// }
-// activeShow();
+// mouseover hover effect
+// ref: https: //developer.mozilla.org/en-US/docs/Web/API/Element/mouseover_event
 
-// function removeActive() {
-//   showContainers.forEach((showContainer) => {
-//     if (showContainer.classList.contains(".onClick")) {
-//       showContainers.classList.remove(".onClick");
-//       console.log("contains onClick");
+// [].forEach.call(showContainers, function (showContainer) {
+//   showContainer.addEventListener("mouseover", function (e) {
+//     if (e.currentTarget !== e.target) {
+//       return;
 //     }
+//     e.target.style.backgroundColor = "#FAFAFA";
 //   });
-// }
-// removeActive();
-
-// function handleActiveShow() {
-//   showContainer.addEventListener("Click", () => {});
-// }
-// handleActiveShow();
-
-//   if (showContainer.classList.contains(".onClick")) {
-//     showContainer.classList.remove(".onClick");
-//     console.log("contains onClick");
-//     showContainer.removeEventListener("mouseover", handleEasterEgg);
-//     easterEgg.removeEventListener("mouseout", handleEasterEgg);
-//   } else {
-//     showContainer.classList.add("onClick");
-//   }
-// });
-// showContainer.addEventListener("onmouseover", () => {
-//   console.log("mouseover test");
-//   showContainer.classList.add("mouseover");
+//   showContainer.addEventListener("mouseout", function (e) {
+//     if (e.currentTarget !== e.target) {
+//       return;
+//     }
+//     e.target.style.backgroundColor = "white";
+//   });
 // });

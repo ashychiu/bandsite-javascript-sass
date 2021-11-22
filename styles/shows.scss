@@ -122,17 +122,13 @@
       justify-content: space-around;
       margin-left: 30%;
     }
-    // &:hover {
-    //   background-color: $secondary-alabaster;
-    // }
-    // &:active {
-    //   background-color: $secondary-mercury;
-    // }
+    &:hover {
+      background-color: $secondary-alabaster;
+    }
   }
   &__container-tab-desk {
     display: none;
     @include tablet {
-      background-color: brown;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
@@ -140,7 +136,7 @@
       width: 62%;
     }
     @include desktop {
-      margin-left: 14%;
+      margin-left: 10%;
       width: 45%;
       justify-content: space-between;
     }
@@ -210,6 +206,7 @@
     }
   }
   &__divider {
+    width: 100%;
     @include desktop {
       margin-left: 32%;
       width: 65%;
@@ -241,13 +238,5 @@
   }
   @include desktop {
     background-color: $secondary-mercury;
-  }
-}
-.onHover {
-  @include tablet {
-    background-color: $secondary-alabaster;
-  }
-  @include desktop {
-    background-color: $secondary-alabaster;
   }
 }
