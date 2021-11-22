@@ -33,13 +33,21 @@ hr {
   &__container {
     background-color: $primary-black;
     width: 100%;
-    @include flex(space-between, center, column);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     @include tablet {
-      @include flex(flex-start, flex-start, row);
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: flex-start;
       padding-left: 2.25rem;
     }
     @include desktop {
-      @include flex(flex-start, flex-start, row);
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
       padding: $desktop-padding;
     }
   }
@@ -48,12 +56,13 @@ hr {
     margin: auto;
   }
   &__nav-container {
-    @include flex;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
     @include tablet {
       width: 30%;
       align-content: center;
-      // margin-right: auto;
     }
     @include desktop {
       width: 10%;
@@ -92,14 +101,16 @@ hr {
     color: $primary-white;
     @include footer-copy;
     @include tablet {
-      @include flex;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       flex-wrap: wrap;
       padding: 0 2.25rem;
       @include tablet-footer-copy;
     }
     @include desktop {
       flex-wrap: wrap;
-      padding: 0 100px;
+      padding: 0 6.25rem;
     }
   }
   &__title {
@@ -115,7 +126,9 @@ hr {
       margin-left: 1.25rem;
       margin-top: 1.5rem;
       width: 33%;
-      @include flex(space-evenly, center, row);
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
     }
     @include desktop {
       margin-left: 5%;
@@ -162,9 +175,15 @@ hr {
 
 .contact {
   &__container {
-    @include flex(space-between, flex-start, column);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
     @include tablet {
-      @include flex;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
       order: 2;
       width: 100%;
       margin-bottom: 1.5rem;

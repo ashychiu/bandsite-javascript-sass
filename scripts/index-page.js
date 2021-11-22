@@ -47,15 +47,7 @@ function displayComments() {
 }
 displayComments();
 
-// Append commend card to comment list
-// for (let i = 0; i < comments.length; i++) {
-//   let comment = comments[i];
-//   let commentCard = displayComment(comment);
-//   commentsList.appendChild(commentCard);
-// }
-// console.log(comment);
-
-// Comment card
+// Creat comment card by using appendchild
 function displayComment(comment) {
   let commentCard = document.createElement("div");
   commentCard.classList.add("comment__container");
@@ -78,7 +70,6 @@ function displayComment(comment) {
   let commentName = createCommentName(comment);
   let commentDate = createCommentDate(comment);
   container2.append(commentName, commentDate);
-  // container2.appendChild(commentDate);
 
   let anotherContainer2 = document.createElement("div");
   anotherContainer2.classList.add("comment__container2");
@@ -90,45 +81,39 @@ function displayComment(comment) {
   return commentCard;
 }
 
+//Create avatar element
 function createAvatarElement(image) {
-  // <img src="images/daniil.jpeg" class="card__image" alt="Head shot of Daniil">
   let avatarImg = document.createElement("img");
   avatarImg.classList.add("comment__avatar");
-  // avatarImg.setAttribute('src', '/images/' + image.url);
   avatarImg.src = "./assets/images/" + image.url;
   avatarImg.alt = image.alt;
   return avatarImg;
 }
 
+//Create comment name element
 function createCommentName(comment) {
-  // <p class="comment__name">Connor Walton</p>
   let commentName = document.createElement("p");
   commentName.classList.add("comment__name");
   commentName.innerText = comment.name;
-  // commentsList.appendChild(commentName);
   return commentName;
 }
 
+//Create comment date element
 function createCommentDate(comment) {
-  // <p class="comment__date">02/17/2021</p>
   let commentDate = document.createElement("p");
   commentDate.classList.add("comment__date");
   commentDate.innerText = comment.date;
-  // commentsList.appendChild(commentDate);
   return commentDate;
 }
 
+//Create comment content element
 function createCommentContent(comment) {
-  // <p class="comment__content">
   let commentContent = document.createElement("p");
   commentContent.classList.add("comment__content");
   commentContent.innerText = comment.content;
-  // commentsList.appendChild(commentContent);
-
   return commentContent;
 }
 
-//---------------------------------------------
 // Get current date
 // Ref: https://stackoverflow.com/questions/1531093/how-do-i-get-the-current-date-in-javascript
 let today = new Date();

@@ -48,7 +48,7 @@ function displayShows() {
 }
 displayShows();
 
-// Creat show card
+// Creat show card by using append
 function displayShow(show) {
   let showCard = document.createElement("div");
   showCard.classList.add("shows__container");
@@ -94,23 +94,10 @@ function displayShow(show) {
   return showCard;
 }
 
-let showContainers = document.querySelectorAll(".shows__container");
-
 // Alternating on-click effect
 // Ref: https://stackoverflow.com/questions/28412671/how-can-i-highlight-a-link-on-first-click-and-follow-it-on-second-click-unless
 
-document.body.addEventListener(
-  "click",
-  function (e) {
-    [].forEach.call(showContainers, function (showContainer) {
-      // Remove onClick when clicking other areas of the page
-      if (e.target !== showContainer) {
-        showContainer.classList.remove("onClick");
-      }
-    });
-  },
-  false
-);
+let showContainers = document.querySelectorAll(".shows__container");
 
 [].forEach.call(showContainers, function (showContainer) {
   showContainer.addEventListener(
@@ -146,20 +133,15 @@ document.body.addEventListener(
   );
 });
 
-// mouseover hover effect
-// ref: https: //developer.mozilla.org/en-US/docs/Web/API/Element/mouseover_event
-
-// [].forEach.call(showContainers, function (showContainer) {
-//   showContainer.addEventListener("mouseover", function (e) {
-//     if (e.currentTarget !== e.target) {
-//       return;
-//     }
-//     e.target.style.backgroundColor = "#FAFAFA";
-//   });
-//   showContainer.addEventListener("mouseout", function (e) {
-//     if (e.currentTarget !== e.target) {
-//       return;
-//     }
-//     e.target.style.backgroundColor = "white";
-//   });
-// });
+//Remove onClick when clicking other areas on the page
+document.body.addEventListener(
+  "click",
+  function (e) {
+    [].forEach.call(showContainers, function (showContainer) {
+      if (e.target !== showContainer) {
+        showContainer.classList.remove("onClick");
+      }
+    });
+  },
+  false
+);
