@@ -1,52 +1,72 @@
-// Array of show details
+// Define API variables
+const SHOWS_API_URL = "https://project-1-api.herokuapp.com/showdates";
+const SHOWS_API_KEY = "3bb7f793-84f1-4ab2-9fb8-085eccde5a05";
 
-let shows = [
-  {
-    date: "Mon Sept 06 2021",
-    venue: "Ronald Lane",
-    location: "San Francisco, CA",
-  },
-  {
-    date: "Tue Sept 21 2021",
-    venue: "Pier 3 East",
-    location: "San Francisco, CA",
-  },
-  {
-    date: "Fri Oct 15 2021",
-    venue: "View Lounge",
-    location: "San Francisco, CA",
-  },
-  {
-    date: "Sat Nov 06 2021",
-    venue: "Hyatt Agency",
-    location: "San Francisco, CA",
-  },
-  {
-    date: "Fri Nov 26 2021",
-    venue: "Moscow Center",
-    location: "San Francisco, CA",
-  },
-  {
-    date: "Wed Dec 15 2021",
-    venue: "Press Club",
-    location: "San Francisco, CA",
-  },
-];
+const showdates = axios
+  .get(`${SHOWS_API_URL}/?api_key=${SHOWS_API_KEY}`)
+  .then((response) => {
+    console.log(response);
+    console.log(response.data.location);
+    function displayShows() {
+      response.data.forEach((show) => {
+        let showCard = displayShow(show);
+        showsList.appendChild(showCard);
+        let hr = document.createElement("hr");
+        hr.classList.add("shows__divider");
+        showsList.appendChild(hr);
+      });
+    }
+    displayShows();
+  });
+
+// Array of show details
+// let shows = [
+//   {
+//     date: "Mon Sept 06 2021",
+//     venue: "Ronald Lane",
+//     location: "San Francisco, CA",
+//   },
+//   {
+//     date: "Tue Sept 21 2021",
+//     venue: "Pier 3 East",
+//     location: "San Francisco, CA",
+//   },
+//   {
+//     date: "Fri Oct 15 2021",
+//     venue: "View Lounge",
+//     location: "San Francisco, CA",
+//   },
+//   {
+//     date: "Sat Nov 06 2021",
+//     venue: "Hyatt Agency",
+//     location: "San Francisco, CA",
+//   },
+//   {
+//     date: "Fri Nov 26 2021",
+//     venue: "Moscow Center",
+//     location: "San Francisco, CA",
+//   },
+//   {
+//     date: "Wed Dec 15 2021",
+//     venue: "Press Club",
+//     location: "San Francisco, CA",
+//   },
+// ];
 
 // Define shows list element
 let showsList = document.querySelector(".shows__details");
 
 // Append show card to shows list
-function displayShows() {
-  shows.forEach((show) => {
-    let showCard = displayShow(show);
-    showsList.appendChild(showCard);
-    let hr = document.createElement("hr");
-    hr.classList.add("shows__divider");
-    showsList.appendChild(hr);
-  });
-}
-displayShows();
+// function displayShows() {
+//   shows.forEach((show) => {
+//     let showCard = displayShow(show);
+//     showsList.appendChild(showCard);
+//     let hr = document.createElement("hr");
+//     hr.classList.add("shows__divider");
+//     showsList.appendChild(hr);
+//   });
+// }
+// displayShows();
 
 // Creat show card by using append
 function displayShow(show) {
@@ -57,9 +77,14 @@ function displayShow(show) {
   showItemDate.classList.add("shows__heading");
   showItemDate.innerText = "DATE";
 
+  var timestamp = 1607110465663;
+  var testshowdate = new Date(timestamp);
+  // console.log(date.getTime());
+  console.log(testshowdate);
+
   let showDate = document.createElement("span");
   showDate.classList.add("shows__date");
-  showDate.innerText = show.date;
+  showDate.innerText = testshowdate;
 
   let showItemVenue = document.createElement("p");
   showItemVenue.classList.add("shows__heading");
@@ -67,7 +92,7 @@ function displayShow(show) {
 
   let showVenue = document.createElement("span");
   showVenue.classList.add("shows__venue");
-  showVenue.innerText = show.venue;
+  showVenue.innerText = show.place;
 
   let showItemLocation = document.createElement("p");
   showItemLocation.classList.add("shows__heading");

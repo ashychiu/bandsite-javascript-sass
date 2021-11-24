@@ -1,53 +1,28 @@
-// Array of existing comments
-let comments = [
-  {
-    name: "Connor Walton",
-    date: "02/17/2021",
-    image: {
-      url: "placeholder.jpeg",
-      alt: "avatar",
-    },
-    content:
-      "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.",
-  },
-  {
-    name: "Emilie Beach",
-    date: "01/09/2021",
-    image: {
-      url: "placeholder.jpeg",
-      alt: "avatar",
-    },
-    content:
-      "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.",
-  },
-  {
-    name: "Miles Acosta",
-    date: "12/20/2020",
-    image: {
-      url: "placeholder.jpeg",
-      alt: "avatar",
-    },
-    content:
-      "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
-  },
-];
+// Define API variables
+const COMMENTS_API_URL = "https://project-1-api.herokuapp.com/comments";
+const COMMENTS_API_KEY = "3bb7f793-84f1-4ab2-9fb8-085eccde5a05";
 
-// Comment list element
+const apiComments = axios
+  .get(`${COMMENTS_API_URL}/?api_key=${COMMENTS_API_KEY}`)
+  .then((response) => {
+    console.log(response);
+    console.log(response.data[1].timestamp);
+    function displayComments() {
+      response.data.forEach((comment) => {
+        let commentCard = displayComment(comment);
+        commentsList.appendChild(commentCard);
+        let hr = document.createElement("hr");
+        hr.classList.add("comment__divider");
+        commentsList.appendChild(hr);
+      });
+    }
+    displayComments();
+  });
+
+// Create Comment list element
 let commentsList = document.querySelector(".comment__list-container");
 
-// Using forEach to append comment
-function displayComments() {
-  comments.forEach((comment) => {
-    let commentCard = displayComment(comment);
-    commentsList.appendChild(commentCard);
-    let hr = document.createElement("hr");
-    hr.classList.add("comment__divider");
-    commentsList.appendChild(hr);
-  });
-}
-displayComments();
-
-// Creat comment card by using appendchild
+// Create comment card by using appendchild
 function displayComment(comment) {
   let commentCard = document.createElement("div");
   commentCard.classList.add("comment__container");
@@ -85,8 +60,8 @@ function displayComment(comment) {
 function createAvatarElement(image) {
   let avatarImg = document.createElement("img");
   avatarImg.classList.add("comment__avatar");
-  avatarImg.src = "./assets/images/" + image.url;
-  avatarImg.alt = image.alt;
+  avatarImg.src = "./assets/images/placeholder.jpeg";
+  avatarImg.alt = "avatar";
   return avatarImg;
 }
 
@@ -102,7 +77,7 @@ function createCommentName(comment) {
 function createCommentDate(comment) {
   let commentDate = document.createElement("p");
   commentDate.classList.add("comment__date");
-  commentDate.innerText = comment.date;
+  commentDate.innerText = comment.date; // need to work on formatting timestamp into date
   return commentDate;
 }
 
@@ -110,7 +85,7 @@ function createCommentDate(comment) {
 function createCommentContent(comment) {
   let commentContent = document.createElement("p");
   commentContent.classList.add("comment__content");
-  commentContent.innerText = comment.content;
+  commentContent.innerText = comment.comment;
   return commentContent;
 }
 
