@@ -6,7 +6,6 @@ const showdates = axios
   .get(`${SHOWS_API_URL}/?api_key=${SHOWS_API_KEY}`)
   .then((response) => {
     console.log(response);
-    console.log(response.data.location);
     function displayShows() {
       response.data.forEach((show) => {
         let showCard = displayShow(show);
@@ -19,54 +18,8 @@ const showdates = axios
     displayShows();
   });
 
-// Array of show details
-// let shows = [
-//   {
-//     date: "Mon Sept 06 2021",
-//     venue: "Ronald Lane",
-//     location: "San Francisco, CA",
-//   },
-//   {
-//     date: "Tue Sept 21 2021",
-//     venue: "Pier 3 East",
-//     location: "San Francisco, CA",
-//   },
-//   {
-//     date: "Fri Oct 15 2021",
-//     venue: "View Lounge",
-//     location: "San Francisco, CA",
-//   },
-//   {
-//     date: "Sat Nov 06 2021",
-//     venue: "Hyatt Agency",
-//     location: "San Francisco, CA",
-//   },
-//   {
-//     date: "Fri Nov 26 2021",
-//     venue: "Moscow Center",
-//     location: "San Francisco, CA",
-//   },
-//   {
-//     date: "Wed Dec 15 2021",
-//     venue: "Press Club",
-//     location: "San Francisco, CA",
-//   },
-// ];
-
 // Define shows list element
 let showsList = document.querySelector(".shows__details");
-
-// Append show card to shows list
-// function displayShows() {
-//   shows.forEach((show) => {
-//     let showCard = displayShow(show);
-//     showsList.appendChild(showCard);
-//     let hr = document.createElement("hr");
-//     hr.classList.add("shows__divider");
-//     showsList.appendChild(hr);
-//   });
-// }
-// displayShows();
 
 // Creat show card by using append
 function displayShow(show) {
@@ -77,14 +30,19 @@ function displayShow(show) {
   showItemDate.classList.add("shows__heading");
   showItemDate.innerText = "DATE";
 
-  var timestamp = 1607110465663;
-  var testshowdate = new Date(timestamp);
-  // console.log(date.getTime());
-  console.log(testshowdate);
-
+  let dateObj = parseInt(show.date);
+  // console.log(show.date);
+  // console.log(dateObj);
+  let date = new Date(dateObj);
+  console.log(date);
+  let ddd = String(date.getDay());
+  let dd = String(date.getDate()).padStart(2, "0");
+  let mm = String(date.getMonth() + 1).padStart(2, "0"); //January is 0!
+  let yyyy = date.getFullYear();
+  formattedDate = ddd + mm + dd + yyyy;
   let showDate = document.createElement("span");
   showDate.classList.add("shows__date");
-  showDate.innerText = testshowdate;
+  showDate.innerText = date;
 
   let showItemVenue = document.createElement("p");
   showItemVenue.classList.add("shows__heading");
@@ -121,15 +79,14 @@ function displayShow(show) {
 
 // Alternating on-click effect
 // Ref: https://stackoverflow.com/questions/28412671/how-can-i-highlight-a-link-on-first-click-and-follow-it-on-second-click-unless
-
 let showContainers = document.querySelectorAll(".shows__container");
 
-[].forEach.call(showContainers, function (showContainer) {
+showContainers.forEach((showContainer) => {
   showContainer.addEventListener(
     "click",
-    (function (e) {
+    (function (event) {
       let clicked = false;
-      return function (e) {
+      return function (event) {
         // prevent trigger from clicking chilren
         // ref: https://stackoverflow.com/questions/13918441/javascript-addeventlistener-without-selecting-children
         if (e.currentTarget !== e.target) {
@@ -137,17 +94,17 @@ let showContainers = document.querySelectorAll(".shows__container");
         }
         // add "onClick" to class list if it's not already clicked
         if (!clicked) {
-          e.preventDefault();
-          e.target.classList.add("onClick");
+          event.preventDefault();
+          event.target.classList.add("onClick");
           clicked = true;
         } else {
           // remove onClick if it's already there
-          clicked = e.target.classList.contains("onClick");
+          clicked = event.target.classList.contains("onClick");
           if (clicked) {
-            e.target.classList.remove("onClick");
+            event.target.classList.remove("onClick");
           } else {
-            e.preventDefault();
-            e.target.classList.add("onClick");
+            event.preventDefault();
+            event.target.classList.add("onClick");
             console.log("add onClick");
             clicked = true;
           }

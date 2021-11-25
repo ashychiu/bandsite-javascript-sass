@@ -1,6 +1,6 @@
 // Define API variables
 const COMMENTS_API_URL = "https://project-1-api.herokuapp.com/comments";
-const COMMENTS_API_KEY = "3bb7f793-84f1-4ab2-9fb8-085eccde5a05";
+const COMMENTS_API_KEY = "301b28a3-aa6a-4879-8c25-2c607ada5db6";
 
 const apiComments = axios
   .get(`${COMMENTS_API_URL}/?api_key=${COMMENTS_API_KEY}`)
@@ -11,6 +11,10 @@ const apiComments = axios
       response.data.forEach((comment) => {
         let commentCard = displayComment(comment);
         commentsList.appendChild(commentCard);
+        let likeButton = document.createElement("img");
+        // likeButton.classList.add("comment__like-button");
+        // likeButton.src = "./assets/icons/SVG/icon-like.svg";
+        // commentsList.appendChild(likeButton);
         let hr = document.createElement("hr");
         hr.classList.add("comment__divider");
         commentsList.appendChild(hr);
@@ -74,10 +78,16 @@ function createCommentName(comment) {
 }
 
 //Create comment date element
+//Date formatting - Ref: https://stackoverflow.com/questions/1531093/how-do-i-get-the-current-date-in-javascript
 function createCommentDate(comment) {
+  let date = new Date(comment.timestamp);
+  let dd = String(date.getDate()).padStart(2, "0");
+  let mm = String(date.getMonth() + 1).padStart(2, "0"); //January is 0!
+  let yyyy = date.getFullYear();
+  formattedDate = mm + "/" + dd + "/" + yyyy;
   let commentDate = document.createElement("p");
   commentDate.classList.add("comment__date");
-  commentDate.innerText = comment.date; // need to work on formatting timestamp into date
+  commentDate.innerText = formattedDate;
   return commentDate;
 }
 
@@ -89,15 +99,7 @@ function createCommentContent(comment) {
   return commentContent;
 }
 
-// Get current date
-// Ref: https://stackoverflow.com/questions/1531093/how-do-i-get-the-current-date-in-javascript
-let today = new Date();
-let dd = String(today.getDate()).padStart(2, "0");
-let mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
-let yyyy = today.getFullYear();
-today = mm + "/" + dd + "/" + yyyy;
-
-// Push new comment to the array when submit
+//New comment submission
 const form = document.getElementById("comment__form");
 
 // Add eventListener to form submission
@@ -110,27 +112,46 @@ form.addEventListener("submit", (event) => {
   if (!event.target.comment.value) {
     alert("Please leave a comment");
   }
-  // if both name & comment are true then push new comment to array
+  // if both name & comment are true then post to api
   if (event.target.name.value && event.target.comment.value) {
-    let newCommentObject = {
-      name: event.target.name.value,
-      date: today,
-      image: {
-        url: "Mohan-muruge.jpg",
-        alt: "avatar",
-      },
-      content: event.target.comment.value,
-    };
-    //puch new comment to be first object
-    comments.unshift(newCommentObject);
+    axios
+      .post(`${COMMENTS_API_URL}/?api_key=${COMMENTS_API_KEY}`, {
+        name: event.target.name.value,
+        comment: event.target.comment.value,
+      })
+      .then((response) => {
+        axios
+          .get(`${COMMENTS_API_URL}/?api_key=${COMMENTS_API_KEY}`)
+          .then((response) => {
+            console.log(response);
+            //clear the existing comments
+            commentsList.innerHTML = "";
 
-    //clear the existing comments
-    commentsList.innerHTML = "";
+            //sort response by timestamp
+            //ref: https://stackoverflow.com/questions/7555025/fastest-way-to-sort-an-array-by-timestamp
+            response.data.sort(function (x, y) {
+              return y.timestamp - x.timestamp;
+            });
 
-    //display the new array of comments
-    displayComments();
+            //display the new array of comments
+            function displayComments() {
+              response.data.forEach((comment) => {
+                let commentCard = displayComment(comment);
+                commentsList.appendChild(commentCard);
+                let hr = document.createElement("hr");
+                hr.classList.add("comment__divider");
+                commentsList.appendChild(hr);
+              });
+            }
+            displayComments();
+          });
+      });
 
     // Reset form after sucessful submission
     event.target.reset();
   }
 });
+
+// const button = document.querySelectorAll(".comment__like-button");
+
+// button.addEventListener("click", (event) => console.log("liked"));
