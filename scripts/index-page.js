@@ -5,8 +5,11 @@ const COMMENTS_API_KEY = "301b28a3-aa6a-4879-8c25-2c607ada5db6";
 const apiComments = axios
   .get(`${COMMENTS_API_URL}/?api_key=${COMMENTS_API_KEY}`)
   .then((response) => {
-    console.log(response);
-    console.log(response.data[1].timestamp);
+    //sort response by timestamp
+    //ref: https://stackoverflow.com/questions/7555025/fastest-way-to-sort-an-array-by-timestamp
+    response.data.sort(function (x, y) {
+      return y.timestamp - x.timestamp;
+    });
     function displayComments() {
       response.data.forEach((comment) => {
         let commentCard = displayComment(comment);
@@ -128,7 +131,6 @@ form.addEventListener("submit", (event) => {
             commentsList.innerHTML = "";
 
             //sort response by timestamp
-            //ref: https://stackoverflow.com/questions/7555025/fastest-way-to-sort-an-array-by-timestamp
             response.data.sort(function (x, y) {
               return y.timestamp - x.timestamp;
             });

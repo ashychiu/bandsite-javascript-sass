@@ -16,12 +16,65 @@ const showdates = axios
       });
     }
     displayShows();
+
+    // addEventListener will only work inside the promise and after displayShows()
+    // Alternating on-click effect
+    // Ref: https://stackoverflow.com/questions/28412671/how-can-i-highlight-a-link-on-first-click-and-follow-it-on-second-click-unless
+    let showContainers = document.querySelectorAll(".shows__container");
+
+    showContainers.forEach((showContainer) => {
+      showContainer.addEventListener(
+        "click",
+        (function (event) {
+          let clicked = false;
+          return function (event) {
+            // prevent trigger from clicking chilren
+            // ref: https://stackoverflow.com/questions/13918441/javascript-addeventlistener-without-selecting-children
+            if (event.currentTarget !== event.target) {
+              return;
+            }
+            // add "onClick" to class list if it's not already clicked
+            if (!clicked) {
+              event.preventDefault();
+              event.target.classList.add("onClick");
+              console.log("clickkkkkk");
+              clicked = true;
+            } else {
+              // remove onClick if it's already there
+              clicked = event.target.classList.contains("onClick");
+              if (clicked) {
+                event.target.classList.remove("onClick");
+              } else {
+                event.preventDefault();
+                event.target.classList.add("onClick");
+                console.log("add onClick");
+                clicked = true;
+              }
+            }
+          };
+        })(),
+        false
+      );
+    });
+
+    //Remove onClick when clicking other areas on the page
+    document.body.addEventListener(
+      "click",
+      function (e) {
+        showContainers.forEach((showContainer) => {
+          if (e.target !== showContainer) {
+            showContainer.classList.remove("onClick");
+          }
+        });
+      },
+      false
+    );
   });
 
 // Define shows list element
 let showsList = document.querySelector(".shows__details");
 
-// Creat show card by using append
+// Create show card by using append
 function displayShow(show) {
   let showCard = document.createElement("div");
   showCard.classList.add("shows__container");
@@ -30,19 +83,14 @@ function displayShow(show) {
   showItemDate.classList.add("shows__heading");
   showItemDate.innerText = "DATE";
 
+  //show.date is timestamp in a string, need to convert to object, then convert back to string for extraction
   let dateObj = parseInt(show.date);
-  // console.log(show.date);
-  // console.log(dateObj);
-  let date = new Date(dateObj);
-  console.log(date);
-  let ddd = String(date.getDay());
-  let dd = String(date.getDate()).padStart(2, "0");
-  let mm = String(date.getMonth() + 1).padStart(2, "0"); //January is 0!
-  let yyyy = date.getFullYear();
-  formattedDate = ddd + mm + dd + yyyy;
+  date = new Date(dateObj);
+  dateStr = String(date);
+  dateOnly = dateStr.substr(0, 15); //Ref: https://www.w3schools.com/jsref/jsref_substr.asp
   let showDate = document.createElement("span");
   showDate.classList.add("shows__date");
-  showDate.innerText = date;
+  showDate.innerText = dateOnly;
 
   let showItemVenue = document.createElement("p");
   showItemVenue.classList.add("shows__heading");
@@ -76,54 +124,3 @@ function displayShow(show) {
 
   return showCard;
 }
-
-// Alternating on-click effect
-// Ref: https://stackoverflow.com/questions/28412671/how-can-i-highlight-a-link-on-first-click-and-follow-it-on-second-click-unless
-let showContainers = document.querySelectorAll(".shows__container");
-
-showContainers.forEach((showContainer) => {
-  showContainer.addEventListener(
-    "click",
-    (function (event) {
-      let clicked = false;
-      return function (event) {
-        // prevent trigger from clicking chilren
-        // ref: https://stackoverflow.com/questions/13918441/javascript-addeventlistener-without-selecting-children
-        if (e.currentTarget !== e.target) {
-          return;
-        }
-        // add "onClick" to class list if it's not already clicked
-        if (!clicked) {
-          event.preventDefault();
-          event.target.classList.add("onClick");
-          clicked = true;
-        } else {
-          // remove onClick if it's already there
-          clicked = event.target.classList.contains("onClick");
-          if (clicked) {
-            event.target.classList.remove("onClick");
-          } else {
-            event.preventDefault();
-            event.target.classList.add("onClick");
-            console.log("add onClick");
-            clicked = true;
-          }
-        }
-      };
-    })(),
-    false
-  );
-});
-
-//Remove onClick when clicking other areas on the page
-document.body.addEventListener(
-  "click",
-  function (e) {
-    [].forEach.call(showContainers, function (showContainer) {
-      if (e.target !== showContainer) {
-        showContainer.classList.remove("onClick");
-      }
-    });
-  },
-  false
-);
