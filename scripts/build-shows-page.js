@@ -18,57 +18,29 @@ const showdates = axios
     displayShows();
 
     // addEventListener will only work inside the promise and after displayShows()
-    // Alternating on-click effect
-    // Ref: https://stackoverflow.com/questions/28412671/how-can-i-highlight-a-link-on-first-click-and-follow-it-on-second-click-unless
     let showContainers = document.querySelectorAll(".shows__container");
 
     showContainers.forEach((showContainer) => {
-      showContainer.addEventListener(
-        "click",
-        (function (event) {
-          let clicked = false;
-          return function (event) {
-            // prevent trigger from clicking chilren
-            // ref: https://stackoverflow.com/questions/13918441/javascript-addeventlistener-without-selecting-children
-            if (event.currentTarget !== event.target) {
-              return;
-            }
-            // add "onClick" to class list if it's not already clicked
-            if (!clicked) {
-              event.preventDefault();
-              event.target.classList.add("onClick");
-              console.log("clickkkkkk");
-              clicked = true;
-            } else {
-              // remove onClick if it's already there
-              clicked = event.target.classList.contains("onClick");
-              if (clicked) {
-                event.target.classList.remove("onClick");
-              } else {
-                event.preventDefault();
-                event.target.classList.add("onClick");
-                console.log("add onClick");
-                clicked = true;
-              }
-            }
-          };
-        })(),
-        false
-      );
+      showContainer.addEventListener("click", (event) => {
+        // prevent trigger from clicking chilren
+        //ref: https://stackoverflow.com/questions/13918441/javascript-addeventlistener-without-selecting-children
+        if (event.currentTarget !== event.target) {
+          return;
+        } else {
+          event.preventDefault();
+          event.target.classList.toggle("onClick");
+          console.log("clicked");
+        }
+      });
     });
-
-    //Remove onClick when clicking other areas on the page
-    document.body.addEventListener(
-      "click",
-      function (e) {
-        showContainers.forEach((showContainer) => {
-          if (e.target !== showContainer) {
-            showContainer.classList.remove("onClick");
-          }
-        });
-      },
-      false
-    );
+    //Remove onClick when clicking other areas
+    document.body.addEventListener("click", (event) => {
+      showContainers.forEach((showContainer) => {
+        if (event.target !== showContainer) {
+          showContainer.classList.remove("onClick");
+        }
+      });
+    });
   });
 
 // Define shows list element
