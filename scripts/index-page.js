@@ -1,6 +1,6 @@
 // Define API variables
 const COMMENTS_API_URL = "https://project-1-api.herokuapp.com/comments";
-const COMMENTS_API_KEY = "be13363f-eaf9-41e6-9e19-051645967029";
+const COMMENTS_API_KEY = "0a428c93-8d64-4666-ae99-a91c6553b8d6";
 
 const apiComments = axios
   .get(`${COMMENTS_API_URL}/?api_key=${COMMENTS_API_KEY}`)
@@ -34,33 +34,36 @@ let commentsList = document.querySelector(".comment__list-container");
 // Create comment card by using appendchild
 function displayComment(comment) {
   let commentCard = document.createElement("div");
-  commentCard.classList.add("comment__outter-container");
+  commentCard.classList.add("message__outter-container");
 
   let avatarContainer = document.createElement("div");
-  avatarContainer.classList.add("comment__avatar-container");
+  avatarContainer.classList.add("message__avatar-container");
   commentCard.appendChild(avatarContainer);
 
   let avatarElement = createAvatarElement(comment.image);
   avatarContainer.appendChild(avatarElement);
 
-  let anotherContainer = document.createElement("div");
-  anotherContainer.classList.add("comment__body-container");
-  commentCard.appendChild(anotherContainer);
+  // anotherContainer
+  let bodyContainer = document.createElement("div");
+  bodyContainer.classList.add("message__body-container");
+  commentCard.appendChild(bodyContainer);
 
-  let container2 = document.createElement("div");
-  container2.classList.add("comment__top-container");
-  anotherContainer.appendChild(container2);
+  // container2
+  let topContainer = document.createElement("div");
+  topContainer.classList.add("message__top-container");
+  bodyContainer.appendChild(topContainer);
 
   let commentName = createCommentName(comment);
   let commentDate = createCommentDate(comment);
-  container2.append(commentName, commentDate);
+  topContainer.append(commentName, commentDate);
 
-  let anotherContainer2 = document.createElement("div");
-  anotherContainer2.classList.add("comment__bottom-container");
-  anotherContainer.appendChild(anotherContainer2);
+  // anotherContainer2
+  let bottomContainer = document.createElement("div");
+  bottomContainer.classList.add("message__bottom-container");
+  bodyContainer.appendChild(bottomContainer);
 
   let commentContent = createCommentContent(comment);
-  anotherContainer2.appendChild(commentContent);
+  bodyContainer.appendChild(commentContent);
 
   return commentCard;
 }
@@ -68,7 +71,7 @@ function displayComment(comment) {
 //Create avatar element
 function createAvatarElement(image) {
   let avatarImg = document.createElement("img");
-  avatarImg.classList.add("comment__avatar");
+  avatarImg.classList.add("message__avatar");
   avatarImg.src = "./assets/images/placeholder.jpeg";
   avatarImg.alt = "avatar";
   return avatarImg;
@@ -77,7 +80,7 @@ function createAvatarElement(image) {
 //Create comment name element
 function createCommentName(comment) {
   let commentName = document.createElement("p");
-  commentName.classList.add("comment__name");
+  commentName.classList.add("message__name");
   commentName.innerText = comment.name;
   return commentName;
 }
@@ -91,7 +94,7 @@ function createCommentDate(comment) {
   let yyyy = date.getFullYear();
   formattedDate = mm + "/" + dd + "/" + yyyy;
   let commentDate = document.createElement("p");
-  commentDate.classList.add("comment__date");
+  commentDate.classList.add("message__date");
   commentDate.innerText = formattedDate;
   return commentDate;
 }
@@ -99,7 +102,7 @@ function createCommentDate(comment) {
 //Create comment content element
 function createCommentContent(comment) {
   let commentContent = document.createElement("p");
-  commentContent.classList.add("comment__content");
+  commentContent.classList.add("message__content");
   commentContent.innerText = comment.comment;
   return commentContent;
 }

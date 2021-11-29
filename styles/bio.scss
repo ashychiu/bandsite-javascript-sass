@@ -54,7 +54,7 @@
   }
   &__title {
     @include section-header;
-    padding: $padding;
+    padding: 0 1remß;
     @include tablet {
       @include tablet-section-header;
       padding-left: 3rem;
@@ -79,7 +79,7 @@
     &-author {
       @include tablet {
         font-size: 0.8em;
-        font-weight: 600;
+        font-weight: 550;
       }
       @include desktop {
         line-height: 3;
@@ -88,6 +88,7 @@
   }
   &__heading {
     @include subheader;
+    font-weight: 550;
     @include tablet {
       @include tablet-subheader;
     }
@@ -127,6 +128,7 @@
     }
     @include desktop {
       padding: $tablet-padding;
+      margin: 0;
     }
   }
   &__container {
@@ -181,9 +183,23 @@
       padding-left: 20%;
     }
   }
-  &__avatar {
+
+  &__form {
+    flex-grow: 2;
+    @include tablet {
+      width: 100%;
+    }
+  }
+  &__input-container {
+    width: 100%;
+    @include tablet {
+      width: 50%;
+      flex-grow: 0.7;
+    }
+  }
+  &__form-avatar {
     align-self: flex-start;
-    margin: 0 1rem 1rem 0;
+    margin: 1rem 1rem 1rem 0;
     width: 2.25rem;
     height: 2.25rem;
     object-fit: cover;
@@ -191,16 +207,6 @@
     @include tablet {
       width: 3rem;
       height: 3rem;
-    }
-  }
-  &__form-avatar {
-    @extend .comment__avatar;
-    margin-top: 1rem;
-  }
-  &__form {
-    flex-grow: 2;
-    @include tablet {
-      width: 100%;
     }
   }
   &__list-container {
@@ -213,21 +219,32 @@
     @include desktop {
       width: 85%;
       justify-content: flex-end;
-      padding-left: 30%;
+      padding-left: 27%;
     }
   }
+
+  &__main-divider {
+    width: 100%;
+    @include tablet {
+      width: 80%;
+    }
+    @include desktop {
+      margin-left: 27%;
+      width: 48%;
+    }
+  }
+  &__divider {
+    width: 100%;
+  }
+}
+
+.message {
   &__outter-container {
     width: 100%;
     display: flex;
     flex-direction: row;
   }
-  &__input-container {
-    width: 100%;
-    @include tablet {
-      width: 50%;
-      flex-grow: 0.7;
-    }
-  }
+
   &__body-container {
     display: flex;
     flex-direction: column;
@@ -245,6 +262,10 @@
     @include desktop {
       padding: 0;
     }
+  }
+  &__avatar {
+    @extend .comment__form-avatar;
+    margin-top: rem;
   }
   &__name {
     @include subheader;
@@ -267,19 +288,6 @@
       @include tablet-body-copy;
     }
   }
-  &__main-divider {
-    width: 100%;
-    @include tablet {
-      width: 80%;
-    }
-    @include desktop {
-      margin-left: 30%;
-      width: 45%;
-    }
-  }
-  &__divider {
-    width: 100%;
-  }
 }
 
 //Comment Form
@@ -291,6 +299,10 @@ label {
 input::placeholder,
 textarea::placeholder {
   font-family: "Avenir", Verdana, Geneva, Tahoma, sans-serif;
+  color: $primary-black;
+  @include tablet {
+    font-size: 1.1em;
+  }
 }
 
 #submitButton {
@@ -299,16 +311,20 @@ textarea::placeholder {
   border: none;
   color: $primary-white;
   margin: 0.625rem 0;
-  padding: 0.9375rem 2rem;
+  padding: 0.625rem 2rem;
   border-radius: 4px;
   text-align: center;
   text-decoration: none;
   @include subheader;
   @include tablet {
-    width: 40%;
-    margin-left: 60%;
+    width: 35%;
+    margin-left: 65%;
     margin-top: 0.625rem;
     margin-bottom: 0.625rem;
+  }
+  @include desktop {
+    width: 30%;
+    margin-left: 70%;
   }
   //hover effect on submit button
   &:hover {
@@ -319,6 +335,7 @@ textarea::placeholder {
 // Ref: https://www.w3schools.com/howto/howto_css_responsive_form.asp
 input[type="text"],
 textarea {
+  color: $primary-black;
   font-family: "Avenir", Verdana, Geneva, Tahoma, sans-serif;
   width: 100%;
   padding: 0.75rem;
@@ -338,9 +355,6 @@ textarea {
   &:default {
     border: 1px solid $secondary-alabaster;
   }
-  // &:invalid {
-  //   border: 1px solid #d22d2d;
-  // }
 }
 input[type="text"] {
   height: 2.25rem;

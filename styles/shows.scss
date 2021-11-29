@@ -59,6 +59,12 @@
       color: $primary-white;
       @include tablet-page-header;
       font-weight: 600;
+      &:hover {
+        //hover transition for hero title
+        transform: skew(-20deg);
+        transition-duration: 3s;
+        transition-delay: 0.5s;
+      }
     }
   }
   &__tagline {
@@ -73,6 +79,7 @@
     @include desktop {
       padding: 0;
       margin-top: 30vh;
+      margin-bottom: 0;
     }
   }
   &__soundcloud {
@@ -98,9 +105,27 @@
 .shows {
   &__title {
     @include section-header;
+    font-weight: 600;
     padding-left: 1rem;
     @include tablet {
       @include tablet-section-header;
+      padding: $tablet-padding;
+      margin: 0;
+      font-weight: 600;
+      padding-bottom: 1rem;
+    }
+    @include desktop {
+      display: none;
+    }
+  }
+  &__title-desk {
+    @include tablet {
+      display: none;
+    }
+    @include desktop {
+      display: block;
+      @include tablet-section-header;
+      font-weight: 550;
       padding: $tablet-padding;
       margin: 0;
     }
@@ -113,9 +138,7 @@
       justify-content: center;
       align-items: space-evenly;
       padding: 0 3%;
-    }
-    @include desktop {
-      padding-bottom: 1.25rem;
+      margin-bottom: 1.25rem;
     }
   }
   &__container {
@@ -136,26 +159,13 @@
       background-color: $secondary-alabaster;
     }
   }
-  &__container-tab-desk {
-    display: none;
-    @include tablet {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      margin-left: 1rem;
-      width: 62%;
-    }
-    @include desktop {
-      margin-left: 10%;
-      width: 45%;
-      justify-content: space-between;
-    }
-  }
+
   &__container-desktop {
     display: none;
     @include tablet {
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
     }
     @include desktop {
       width: 100%;
@@ -164,27 +174,62 @@
       justify-content: flex-start;
       align-items: center;
       padding-left: 10%;
+      margin-bottom: 0;
     }
   }
+
+  &__container-tab-desk {
+    display: none;
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      // margin: 0 2.25rem;
+      width: 100%;
+    }
+    @include desktop {
+      margin-left: 7%;
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+
   &__heading-tab-desk {
     display: none;
     @include tablet {
+      text-align: left;
+      width: 25%;
       @include tablet-body-copy;
       display: block;
       color: $primary-silver;
-      padding: 0 5%;
     }
     @include desktop {
-      margin-top: 1.5625rem;
+      margin-top: 1.625rem;
+      margin-bottom: 0;
+    }
+  }
+  &__heading-date {
+    margin-left: 2.25rem;
+    @include desktop {
+      margin-left: 3rem;
+    }
+  }
+  &__heading-location {
+    margin-left: -1.25rem;
+  }
+  &__div-placeholder {
+    width: 25%;
+    @include desktop {
+      width: 30%;
     }
   }
   &__heading {
-    @include body-copy;
+    font-size: 0.75rem;
     font-weight: 400;
+    margin-bottom: 0.625rem;
     color: $primary-silver;
     @include tablet {
       display: none;
-      @include tablet-body-copy;
     }
   }
   &__date {
@@ -208,6 +253,7 @@
     @include body-copy;
     color: $primary-black;
     font-weight: 400;
+    margin-top: 0;
     @include tablet {
       width: 20%;
     }
