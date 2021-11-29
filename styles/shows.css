@@ -61,7 +61,7 @@ hr {
 @media screen and (min-width: 1280px) {
   .header__container {
     padding: 0 6.25rem;
-    padding-top: 16px;
+    padding-top: 1rem;
   }
 }
 .header__logo {
@@ -98,7 +98,7 @@ hr {
 }
 @media screen and (min-width: 768px) {
   .header__nav-link {
-    margin-left: 50px;
+    margin-left: 3.125rem;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -154,7 +154,7 @@ hr {
   font-weight: 600;
   font-weight: 600;
   padding-top: 1.5rem;
-  margin-bottom: 16px;
+  margin-bottom: 1rem;
 }
 @media screen and (min-width: 768px) {
   .footer__title {
@@ -166,6 +166,7 @@ hr {
 }
 @media screen and (min-width: 768px) {
   .footer__social-container {
+    margin-left: 1rem;
     margin-top: 3.5rem;
     width: 33%;
     display: flex;
@@ -265,13 +266,11 @@ hr {
   .hero__container-desktop {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-content: flex-start;
+    justify-content: center;
   }
 }
 @media screen and (min-width: 1280px) {
   .hero__container-desktop {
-    display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -281,7 +280,6 @@ hr {
   font-size: 1.5rem;
   line-height: 2rem;
   font-weight: 600;
-  font-weight: 600;
   color: #ffffff;
   padding-left: 1rem;
   margin-top: 1.25rem;
@@ -290,7 +288,6 @@ hr {
   .hero__title {
     font-size: 3.75rem;
     line-height: 4.25rem;
-    font-weight: 600;
     font-weight: 600;
   }
 }
@@ -308,7 +305,6 @@ hr {
     color: #ffffff;
     font-size: 3.75rem;
     line-height: 4.25rem;
-    font-weight: 600;
     font-weight: 600;
   }
   .hero__title-desktop:hover {
@@ -366,7 +362,6 @@ hr {
   font-size: 1.5rem;
   line-height: 2rem;
   font-weight: 600;
-  font-weight: 600;
   padding-left: 1rem;
 }
 @media screen and (min-width: 768px) {
@@ -376,7 +371,6 @@ hr {
     font-weight: 600;
     padding: 3rem 2.25rem 2.25rem 2.25rem;
     margin: 0;
-    font-weight: 600;
     padding-bottom: 1rem;
   }
 }
@@ -500,7 +494,7 @@ hr {
 }
 @media screen and (min-width: 1280px) {
   .shows__heading-date {
-    margin-left: 3rem;
+    margin-left: 3.4rem;
   }
 }
 .shows__heading-location {
@@ -554,7 +548,6 @@ hr {
   line-height: 1.125rem;
   font-weight: 400;
   color: #323232;
-  font-weight: 400;
   margin-top: 0;
 }
 @media screen and (min-width: 768px) {

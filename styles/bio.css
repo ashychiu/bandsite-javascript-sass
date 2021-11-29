@@ -61,7 +61,7 @@ hr {
 @media screen and (min-width: 1280px) {
   .header__container {
     padding: 0 6.25rem;
-    padding-top: 16px;
+    padding-top: 1rem;
   }
 }
 .header__logo {
@@ -98,7 +98,7 @@ hr {
 }
 @media screen and (min-width: 768px) {
   .header__nav-link {
-    margin-left: 50px;
+    margin-left: 3.125rem;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -154,7 +154,7 @@ hr {
   font-weight: 600;
   font-weight: 600;
   padding-top: 1.5rem;
-  margin-bottom: 16px;
+  margin-bottom: 1rem;
 }
 @media screen and (min-width: 768px) {
   .footer__title {
@@ -166,6 +166,7 @@ hr {
 }
 @media screen and (min-width: 768px) {
   .footer__social-container {
+    margin-left: 1rem;
     margin-top: 3.5rem;
     width: 33%;
     display: flex;
@@ -266,15 +267,20 @@ hr {
   line-height: 2rem;
   font-weight: 600;
   color: #ffffff;
-  margin-top: 10vh;
+  margin-top: 15vh;
   padding: 1.5rem 1rem 1rem 1rem;
 }
 @media screen and (min-width: 768px) {
   .hero__title {
-    margin-top: 40vh;
+    margin-top: 20vh;
     font-size: 3.75rem;
     line-height: 4.25rem;
     font-weight: 600;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .hero__title {
+    margin-top: 40vh;
   }
 }
 .hero__title:hover {
@@ -300,7 +306,7 @@ hr {
   font-size: 1.5rem;
   line-height: 2rem;
   font-weight: 600;
-  padding: 0 1remß;
+  padding: 0 1rem;
 }
 @media screen and (min-width: 768px) {
   .about__title {
@@ -535,9 +541,6 @@ hr {
     width: 48%;
   }
 }
-.comment__divider {
-  width: 100%;
-}
 
 .message__outter-container {
   width: 100%;
@@ -566,7 +569,7 @@ hr {
   }
 }
 .message__avatar {
-  margin-top: rem;
+  margin-top: 0;
 }
 .message__name {
   font-size: 0.875rem;
@@ -606,6 +609,9 @@ hr {
     line-height: 1.375rem;
     font-weight: 400;
   }
+}
+.message__divider {
+  width: 100%;
 }
 
 label {

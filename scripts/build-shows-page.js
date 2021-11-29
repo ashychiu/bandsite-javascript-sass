@@ -5,7 +5,6 @@ const SHOWS_API_KEY = "3bb7f793-84f1-4ab2-9fb8-085eccde5a05";
 const showdates = axios
   .get(`${SHOWS_API_URL}/?api_key=${SHOWS_API_KEY}`)
   .then((response) => {
-    console.log(response);
     function displayShows() {
       response.data.forEach((show) => {
         let showCard = displayShow(show);
@@ -28,8 +27,7 @@ const showdates = axios
           return;
         } else {
           event.preventDefault();
-          event.target.classList.toggle("onClick");
-          console.log("clicked");
+          event.target.classList.toggle("onClick"); // toggling "onClick" to class list
         }
       });
     });

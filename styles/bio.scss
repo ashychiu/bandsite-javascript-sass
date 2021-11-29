@@ -8,8 +8,8 @@
 .hero {
   &__container {
     background-image: url(../assets/images/hero-bio.jpg);
-    background-color: rgb(50, 50, 50, 0.5); //tint color
-    background-blend-mode: multiply; //tinted image overlay
+    background-color: rgb(50, 50, 50, 0.5); //tint colour
+    background-blend-mode: multiply; //blending image & colour
     height: 18.75rem;
     width: 100%;
     background-size: cover;
@@ -27,11 +27,14 @@
   &__title {
     @include page-header;
     color: $primary-white;
-    margin-top: 10vh;
+    margin-top: 15vh;
     padding: $padding;
     @include tablet {
-      margin-top: 40vh;
+      margin-top: 20vh;
       @include tablet-page-header;
+    }
+    @include desktop {
+      margin-top: 40vh;
     }
     &:hover {
       //hover transition for hero title
@@ -54,7 +57,7 @@
   }
   &__title {
     @include section-header;
-    padding: 0 1remß;
+    padding: 0 1rem;
     @include tablet {
       @include tablet-section-header;
       padding-left: 3rem;
@@ -183,7 +186,6 @@
       padding-left: 20%;
     }
   }
-
   &__form {
     flex-grow: 2;
     @include tablet {
@@ -222,7 +224,6 @@
       padding-left: 27%;
     }
   }
-
   &__main-divider {
     width: 100%;
     @include tablet {
@@ -233,9 +234,6 @@
       width: 48%;
     }
   }
-  &__divider {
-    width: 100%;
-  }
 }
 
 .message {
@@ -244,7 +242,6 @@
     display: flex;
     flex-direction: row;
   }
-
   &__body-container {
     display: flex;
     flex-direction: column;
@@ -265,7 +262,7 @@
   }
   &__avatar {
     @extend .comment__form-avatar;
-    margin-top: rem;
+    margin-top: 0;
   }
   &__name {
     @include subheader;
@@ -288,9 +285,12 @@
       @include tablet-body-copy;
     }
   }
+  &__divider {
+    width: 100%;
+  }
 }
 
-//Comment Form
+//Input form
 label {
   @include body-copy;
   color: $primary-silver;
@@ -332,7 +332,6 @@ textarea::placeholder {
   }
 }
 
-// Ref: https://www.w3schools.com/howto/howto_css_responsive_form.asp
 input[type="text"],
 textarea {
   color: $primary-black;

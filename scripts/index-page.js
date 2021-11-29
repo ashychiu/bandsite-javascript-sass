@@ -1,11 +1,11 @@
 // Define API variables
 const COMMENTS_API_URL = "https://project-1-api.herokuapp.com/comments";
-const COMMENTS_API_KEY = "0a428c93-8d64-4666-ae99-a91c6553b8d6";
+const COMMENTS_API_KEY = "b4a2a482-8d21-4807-91cd-9cdd1378d9ee";
 
 const apiComments = axios
   .get(`${COMMENTS_API_URL}/?api_key=${COMMENTS_API_KEY}`)
   .then((response) => {
-    sortComments(response.data);
+    sortComments(response.data); //sort response by timestamp
     displayComments(response.data);
   });
 
@@ -21,9 +21,8 @@ function displayComments(responseData) {
   responseData.forEach((comment) => {
     let commentCard = displayComment(comment);
     commentsList.appendChild(commentCard);
-    let likeButton = document.createElement("img");
     let hr = document.createElement("hr");
-    hr.classList.add("comment__divider");
+    hr.classList.add("message__divider");
     commentsList.appendChild(hr);
   });
 }
@@ -33,7 +32,7 @@ let commentsList = document.querySelector(".comment__list-container");
 
 // Create comment card by using appendchild
 function displayComment(comment) {
-  let commentCard = document.createElement("div");
+  let commentCard = document.createElement("article");
   commentCard.classList.add("message__outter-container");
 
   let avatarContainer = document.createElement("div");
@@ -43,12 +42,10 @@ function displayComment(comment) {
   let avatarElement = createAvatarElement(comment.image);
   avatarContainer.appendChild(avatarElement);
 
-  // anotherContainer
   let bodyContainer = document.createElement("div");
   bodyContainer.classList.add("message__body-container");
   commentCard.appendChild(bodyContainer);
 
-  // container2
   let topContainer = document.createElement("div");
   topContainer.classList.add("message__top-container");
   bodyContainer.appendChild(topContainer);
@@ -57,7 +54,6 @@ function displayComment(comment) {
   let commentDate = createCommentDate(comment);
   topContainer.append(commentName, commentDate);
 
-  // anotherContainer2
   let bottomContainer = document.createElement("div");
   bottomContainer.classList.add("message__bottom-container");
   bodyContainer.appendChild(bottomContainer);
@@ -125,15 +121,11 @@ form.addEventListener("submit", (event) => {
         axios
           .get(`${COMMENTS_API_URL}/?api_key=${COMMENTS_API_KEY}`)
           .then((response) => {
-            //clear the existing comments
-            commentsList.innerHTML = "";
-            //sort response by timestamp
-            sortComments(response.data);
-            //display the new array of comments
-            displayComments(response.data);
+            commentsList.innerHTML = ""; //clear the existing comments
+            sortComments(response.data); //sort response by timestamp
+            displayComments(response.data); //display the new array of comments
           });
       });
-    // Reset form after sucessful submission
-    event.target.reset();
+    event.target.reset(); // Reset form after sucessful submission
   }
 });
